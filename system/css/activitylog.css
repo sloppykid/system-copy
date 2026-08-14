@@ -1,0 +1,641 @@
+/* ========================================
+   ACTIVITY LOG PAGE
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f7fc;
+    color: #1f2937;
+    min-height: 100vh;
+}
+
+
+/* ========================================
+   SIDEBAR
+======================================== */
+
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    width: 230px;
+    height: 100vh;
+
+    background: #24467d;
+
+    padding: 22px 18px;
+
+    color: white;
+}
+
+.sidebar h2 {
+    font-size: 22px;
+    margin-bottom: 32px;
+    padding-left: 5px;
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.sidebar nav a {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 13px 13px;
+
+    color: white;
+    text-decoration: none;
+
+    border-radius: 7px;
+
+    font-size: 14px;
+
+    transition: 0.2s ease;
+}
+
+.sidebar nav a i {
+    width: 18px;
+    text-align: center;
+}
+
+.sidebar nav a:hover {
+    background: #315b9d;
+}
+
+.sidebar nav a.active {
+    background: #315b9d;
+}
+
+.sidebar nav a.logout {
+    margin-top: 8px;
+}
+
+
+/* ========================================
+   MAIN CONTENT
+======================================== */
+
+.main-content {
+    margin-left: 230px;
+
+    padding: 25px 28px;
+
+    min-height: 100vh;
+}
+
+
+/* ========================================
+   PAGE HEADER
+======================================== */
+
+.page-header {
+    margin-bottom: 22px;
+}
+
+.page-header h1 {
+    font-size: 18px;
+    font-weight: 700;
+
+    margin-bottom: 5px;
+}
+
+.page-header p {
+    color: #9aa5b5;
+    font-size: 12px;
+}
+
+
+/* ========================================
+   ACTIVITY CARD
+======================================== */
+
+.activity-card {
+    background: white;
+
+    border-radius: 15px;
+
+    padding: 8px 18px;
+
+    max-width: 680px;
+
+    box-shadow: 0 4px 18px rgba(31, 41, 55, 0.06);
+}
+
+
+/* ========================================
+   ACTIVITY ITEM
+======================================== */
+
+.activity-item {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 14px 4px;
+
+    border-bottom: 1px solid #f0f2f5;
+}
+
+.activity-item:last-child {
+    border-bottom: none;
+}
+
+
+/* ========================================
+   ICON
+======================================== */
+
+.activity-icon {
+    width: 30px;
+    height: 30px;
+
+    min-width: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 7px;
+
+    font-size: 12px;
+}
+
+
+/* BLUE */
+
+.activity-icon.blue {
+    background: #edf4ff;
+    color: #2871d8;
+}
+
+
+/* RED */
+
+.activity-icon.red {
+    background: #fff0f1;
+    color: #e0525d;
+}
+
+
+/* ORANGE */
+
+.activity-icon.orange {
+    background: #fff5e8;
+    color: #e99a32;
+}
+
+
+/* GREEN */
+
+.activity-icon.green {
+    background: #eaf9f2;
+    color: #35b978;
+}
+
+
+/* PURPLE */
+
+.activity-icon.purple {
+    background: #f2edff;
+    color: #8767d9;
+}
+
+
+/* ========================================
+   ACTIVITY TEXT
+======================================== */
+
+.activity-info {
+    flex: 1;
+}
+
+.activity-title {
+    font-size: 13px;
+
+    color: #374151;
+
+    line-height: 1.4;
+}
+
+.activity-time {
+    margin-top: 4px;
+
+    font-size: 10px;
+
+    color: #a4adba;
+}
+
+
+/* ========================================
+   DARK MODE
+======================================== */
+
+.dark-mode body {
+    background: #111827;
+    color: #f3f4f6;
+}
+
+.dark-mode .main-content {
+    background: #111827;
+}
+
+.dark-mode .activity-card {
+    background: #1f2937;
+}
+
+.dark-mode .activity-item {
+    border-bottom-color: #374151;
+}
+
+.dark-mode .activity-title {
+    color: #e5e7eb;
+}
+
+.dark-mode .activity-time {
+    color: #9ca3af;
+}
+
+.dark-mode .page-header p {
+    color: #9ca3af;
+}
+
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 800px) {
+
+    .sidebar {
+        width: 190px;
+    }
+
+    .main-content {
+        margin-left: 190px;
+    }
+
+    .activity-card {
+        max-width: 100%;
+    }
+}
+
+/* ========================================
+   FINAL DARK MODE - ACTIVITY LOG
+======================================== */
+
+html.dark-mode body {
+    background: #151b26 !important;
+    color: #eeeeee !important;
+}
+
+
+/* MAIN */
+
+html.dark-mode .main {
+    background: #151b26 !important;
+    color: #eeeeee !important;
+}
+
+
+/* SIDEBAR */
+
+html.dark-mode .sidebar {
+    background: #172f5c !important;
+    color: #ffffff !important;
+}
+
+
+/* SIDEBAR TITLE */
+
+html.dark-mode .sidebar h2 {
+    color: #ffffff !important;
+}
+
+
+/* SIDEBAR LINKS */
+
+html.dark-mode .sidebar li a {
+    color: #ffffff !important;
+}
+
+
+/* SIDEBAR HOVER */
+
+html.dark-mode .sidebar li a:hover {
+    background: #2a5298 !important;
+    color: #ffffff !important;
+}
+
+
+/* ACTIVE SIDEBAR */
+
+html.dark-mode .sidebar li.active a {
+    background: #2a5298 !important;
+    color: #ffffff !important;
+}
+
+
+/* PAGE HEADER */
+
+html.dark-mode .page-header h1 {
+    color: #ffffff !important;
+}
+
+
+html.dark-mode .page-header p {
+    color: #aeb6c3 !important;
+}
+
+
+/* ACTIVITY CARD */
+
+html.dark-mode .activity-card {
+    background: #202938 !important;
+    color: #eeeeee !important;
+}
+
+
+/* ACTIVITY ITEM */
+
+html.dark-mode .activity-item {
+    background: #202938 !important;
+    border-color: #343e4d !important;
+    color: #eeeeee !important;
+}
+
+
+/* ACTIVITY TITLE */
+
+html.dark-mode .activity-title {
+    color: #ffffff !important;
+}
+
+
+/* ACTIVITY TIME */
+
+html.dark-mode .activity-time {
+    color: #9aa6b5 !important;
+}
+
+
+/* ACTIVITY ICON */
+
+html.dark-mode .activity-icon {
+    border-color: transparent !important;
+}
+
+
+/* BLUE */
+
+html.dark-mode .activity-icon.blue {
+    background: #1d3b68 !important;
+    color: #6ea8ff !important;
+}
+
+
+/* RED */
+
+html.dark-mode .activity-icon.red {
+    background: #4a2024 !important;
+    color: #ff7b84 !important;
+}
+
+
+/* ORANGE */
+
+html.dark-mode .activity-icon.orange {
+    background: #4a3519 !important;
+    color: #ffc766 !important;
+}
+
+
+/* GREEN */
+
+html.dark-mode .activity-icon.green {
+    background: #183c2b !important;
+    color: #62d99a !important;
+}
+
+
+/* PURPLE */
+
+html.dark-mode .activity-icon.purple {
+    background: #35234f !important;
+    color: #c69cff !important;
+}
+
+/* ========================================
+   FINAL SIDEBAR ALIGNMENT
+======================================== */
+
+.sidebar {
+    width: 240px !important;
+
+    height: 100vh !important;
+
+    padding: 25px 20px !important;
+
+    box-sizing: border-box !important;
+}
+
+.sidebar h2 {
+    margin: 0 0 35px 0 !important;
+
+    padding: 0 !important;
+
+    font-size: 22px !important;
+}
+
+.sidebar ul {
+    list-style: none !important;
+
+    margin: 0 !important;
+
+    padding: 0 !important;
+}
+
+.sidebar li {
+    margin: 0 0 8px 0 !important;
+
+    padding: 0 !important;
+}
+
+.sidebar li a {
+    display: flex !important;
+
+    align-items: center !important;
+
+    gap: 12px !important;
+
+    width: 100% !important;
+
+    min-height: 42px !important;
+
+    padding: 12px !important;
+
+    box-sizing: border-box !important;
+
+    border-radius: 8px !important;
+
+    font-size: 14px !important;
+
+    color: white !important;
+
+    text-decoration: none !important;
+}
+
+.sidebar li a i {
+    width: 18px !important;
+
+    min-width: 18px !important;
+
+    text-align: center !important;
+}
+
+.sidebar li a:hover {
+    background: #2a5298 !important;
+}
+
+.sidebar li.active a {
+    background: #2a5298 !important;
+
+    color: white !important;
+}
+
+.sidebar li.logout {
+    margin-top: 30px !important;
+}
+
+
+/* ========================================
+   DARK MODE
+======================================== */
+
+html.dark-mode body {
+    background: #151b26 !important;
+
+    color: #eeeeee !important;
+}
+
+html.dark-mode .main {
+    background: #151b26 !important;
+
+    color: #eeeeee !important;
+}
+
+html.dark-mode .sidebar {
+    background: #172f5c !important;
+
+    color: white !important;
+}
+
+html.dark-mode .sidebar h2 {
+    color: white !important;
+}
+
+html.dark-mode .sidebar li a {
+    color: white !important;
+}
+
+html.dark-mode .sidebar li a:hover {
+    background: #2a5298 !important;
+
+    color: white !important;
+}
+
+html.dark-mode .sidebar li.active a {
+    background: #2a5298 !important;
+
+    color: white !important;
+}
+
+html.dark-mode .page-header h1 {
+    color: #ffffff !important;
+}
+
+html.dark-mode .page-header p {
+    color: #aeb6c3 !important;
+}
+
+
+/* ========================================
+   DARK ACTIVITY LOG
+======================================== */
+
+html.dark-mode .activity-card {
+    background: #202938 !important;
+
+    color: #eeeeee !important;
+}
+
+html.dark-mode .activity-item {
+    background: #202938 !important;
+
+    border-color: #343e4d !important;
+
+    color: #eeeeee !important;
+}
+
+html.dark-mode .activity-title {
+    color: #ffffff !important;
+}
+
+html.dark-mode .activity-time {
+    color: #9aa6b5 !important;
+}
+
+html.dark-mode .activity-icon.blue {
+    background: #1d3b68 !important;
+
+    color: #6ea8ff !important;
+}
+
+html.dark-mode .activity-icon.red {
+    background: #4a2024 !important;
+
+    color: #ff7b84 !important;
+}
+
+html.dark-mode .activity-icon.orange {
+    background: #4a3519 !important;
+
+    color: #ffc766 !important;
+}
+
+html.dark-mode .activity-icon.green {
+    background: #183c2b !important;
+
+    color: #62d99a !important;
+}
+
+html.dark-mode .activity-icon.purple {
+    background: #35234f !important;
+
+    color: #c69cff !important;
+}
+
+
+/* ========================================
+   PREVENT INITIAL FLASH
+======================================== */
+
+html:not(.theme-ready) *,
+html:not(.theme-ready) *::before,
+html:not(.theme-ready) *::after {
+    transition: none !important;
+
+    animation: none !important;
+}

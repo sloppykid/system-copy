@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>KTV Monitoring - Login</title>
+
+
+    <!-- LOGIN CSS -->
+
+    <link
+        rel="stylesheet"
+        href="css/login.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         LOGIN CONTAINER
+    ====================================================== -->
+
+    <div class="login-container">
+
+
+        <!-- =================================================
+             LOGO
+        ================================================== -->
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                🎤
+            </div>
+
+
+            <h1>
+                KTV Monitoring
+            </h1>
+
+
+            <p>
+                User Login
+            </p>
+
+        </div>
+
+
+
+        <!-- =================================================
+             LOGIN FORM
+        ================================================== -->
+
+        <form id="loginForm">
+
+
+            <!-- USERNAME -->
+
+            <div class="input-group">
+
+                <label for="username">
+                    Username
+                </label>
+
+
+                <div class="input-wrapper">
+
+                    <span class="input-icon">
+                        👤
+                    </span>
+
+
+                    <input
+                        type="text"
+                        id="username"
+                        placeholder="Enter your username"
+                        autocomplete="username"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PASSWORD -->
+
+            <div class="input-group">
+
+                <label for="password">
+                    Password
+                </label>
+
+
+                <div class="input-wrapper">
+
+                    <span class="input-icon">
+                        🔒
+                    </span>
+
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Enter your password"
+                        autocomplete="current-password"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 REMEMBER ME
+            ================================================== -->
+
+            <div class="remember-row">
+
+                <label class="remember">
+
+                    <input
+                        type="checkbox"
+                        id="remember"
+                    >
+
+                    <span>
+                        Remember me
+                    </span>
+
+                </label>
+
+
+                <a
+                    href="#"
+                    onclick="return false;"
+                >
+                    Forgot Password?
+                </a>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 LOGIN BUTTON
+            ================================================== -->
+
+            <button
+                type="submit"
+            >
+                Login
+            </button>
+
+
+
+            <!-- =================================================
+                 ERROR / SUCCESS MESSAGE
+            ================================================== -->
+
+            <p
+                id="error"
+                class="error"
+            ></p>
+
+
+        </form>
+
+
+
+        <!-- =================================================
+             FOOTER
+        ================================================== -->
+
+        <div class="footer">
+
+            <p>
+                KTV Monitoring System
+            </p>
+
+
+            <span>
+                Admin & Staff Portal
+            </span>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="js/login.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>KTV Monitoring Dashboard</title>
+
+
+    <!-- EXISTING DASHBOARD CSS -->
+    <link rel="stylesheet" href="css/dashboard.css">
+
+    <link rel="stylesheet" href="css/common.css">
+
+    <link rel="stylesheet" href="./css/global.css">
+
+
+    <!-- FONT AWESOME -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+
+    <!-- THEME -->
+    <script src="js/theme.js"></script>
+
+</head>
+
+
+<body>
+
+
+    <!-- ========================================
+         SIDEBAR
+    ========================================= -->
+
+    <aside class="sidebar">
+
+        <h2>KTV System</h2>
+
+
+        <ul>
+
+
+            <!-- DASHBOARD -->
+
+            <li class="active">
+
+                <a href="dashboard.html">
+
+                    <i class="fa-solid fa-house"></i>
+
+                    Dashboard
+
+                </a>
+
+            </li>
+
+
+
+            <!-- ROOMS -->
+
+            <li>
+
+                <a href="room.html">
+
+                    <i class="fa-solid fa-door-open"></i>
+
+                    Rooms
+
+                </a>
+
+            </li>
+
+
+
+            <!-- NOTIFICATIONS -->
+
+            <li>
+
+                <a href="notifications.html">
+
+                    <i class="fa-solid fa-bell"></i>
+
+                    <span>
+                        Notifications
+                    </span>
+
+                </a>
+
+            </li>
+
+
+
+            <!-- ACTIVITY LOG -->
+
+            <li>
+
+                <a href="activitylog.html">
+
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+
+                    <span>
+                        Activity Log
+                    </span>
+
+                </a>
+
+            </li>
+
+
+
+            <!-- REPORTS -->
+
+            <li>
+
+                <a href="reports.html">
+
+                    <i class="fa-solid fa-chart-column"></i>
+
+                    Reports
+
+                </a>
+
+            </li>
+
+
+
+            <!-- SETTINGS -->
+
+            <li>
+
+                <a href="settings.html">
+
+                    <i class="fa-solid fa-gear"></i>
+
+                    Settings
+
+                </a>
+
+            </li>
+
+
+
+            <!-- LOGOUT -->
+
+            <li class="logout">
+
+                <a href="login.html">
+
+                    <i class="fa-solid fa-right-from-bracket"></i>
+
+                    Logout
+
+                </a>
+
+            </li>
+
+
+        </ul>
+
+    </aside>
+
+
+
+    <!-- ========================================
+         MAIN CONTENT
+    ========================================= -->
+
+    <main class="main">
+
+
+        <!-- HEADER -->
+
+        <header class="top-header">
+
+            <div>
+
+                <h1>
+                    Dashboard
+                </h1>
+
+                <p>
+                    Welcome back, Administrator
+                </p>
+
+            </div>
+
+
+            <div id="date"></div>
+
+        </header>
+
+
+
+        <!-- ====================================
+             STATISTICS
+        ===================================== -->
+
+        <section class="cards">
+
+
+            <!-- TOTAL ROOMS -->
+
+            <div class="card">
+
+                <div class="card-icon blue">
+
+                    <i class="fa-solid fa-door-open"></i>
+
+                </div>
+
+
+                <div>
+
+                    <h3 id="totalRooms">
+                        17
+                    </h3>
+
+                    <p>
+                        Total Rooms
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- OCCUPIED -->
+
+            <div class="card">
+
+                <div class="card-icon red">
+
+                    <i class="fa-solid fa-microphone"></i>
+
+                </div>
+
+
+                <div>
+
+                    <h3 id="occupiedRooms">
+                        0
+                    </h3>
+
+                    <p>
+                        Occupied
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- AVAILABLE -->
+
+            <div class="card">
+
+                <div class="card-icon green">
+
+                    <i class="fa-solid fa-circle-check"></i>
+
+                </div>
+
+
+                <div>
+
+                    <h3 id="availableRooms">
+                        17
+                    </h3>
+
+                    <p>
+                        Available
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- EXPIRING SOON -->
+
+            <div class="card">
+
+                <div class="card-icon orange">
+
+                    <i class="fa-solid fa-clock"></i>
+
+                </div>
+
+
+                <div>
+
+                    <h3 id="expiringRooms">
+                        0
+                    </h3>
+
+                    <p>
+                        Expiring Soon
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ====================================
+             ROOM STATUS
+        ===================================== -->
+
+        <section class="room-section">
+
+
+            <div class="section-header">
+
+                <div>
+
+                    <h2>
+                        Room Status
+                    </h2>
+
+                    <p>
+                        Current status of KTV rooms
+                    </p>
+
+                </div>
+
+
+                <a
+                    href="room.html"
+                    class="view-all"
+                >
+                    View All Rooms
+                </a>
+
+            </div>
+
+
+
+            <!-- =================================
+                 ACTIVE ROOM GRID
+            ================================== -->
+
+            <div
+                class="room-grid"
+                id="dashboardRoomGrid"
+            >
+
+                <!-- JavaScript generates rooms here -->
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ========================================
+         JAVASCRIPT
+    ========================================= -->
+
+    <script src="js/theme.js"></script>
+
+    <script src="js/dashboard.js"></script>
+
+    <script src="js/auth.js"></script>
+
+
+</body>
+
+</html>

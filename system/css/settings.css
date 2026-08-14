@@ -1,0 +1,711 @@
+/* ==========================================
+   ADMIN SETTINGS
+   MATCH SHARED ADMIN DESIGN
+========================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+
+/* ==========================================
+   PAGE
+========================================== */
+
+body {
+    margin: 0;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background: #f5f7fb;
+
+    color: #1f2937;
+
+    min-height: 100vh;
+}
+
+
+/* ==========================================
+   MAIN CONTENT
+========================================== */
+
+.main-content {
+    margin-left: 240px;
+
+    min-height: 100vh;
+
+    padding: 30px;
+
+    background: #f5f7fb;
+}
+
+
+/* ==========================================
+   TOPBAR
+========================================== */
+
+.topbar {
+    margin-bottom: 30px;
+}
+
+.topbar h1 {
+    margin: 0 0 8px;
+
+    color: #1f2937;
+
+    font-size: 28px;
+
+    font-weight: 700;
+}
+
+.topbar p {
+    margin: 0;
+
+    color: #6b7280;
+
+    font-size: 14px;
+}
+
+
+/* ==========================================
+   SETTINGS CONTAINER
+========================================== */
+
+.settings-container {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            2,
+            minmax(0, 1fr)
+        );
+
+    gap: 20px;
+}
+
+
+/* ==========================================
+   SETTINGS CARD
+========================================== */
+
+.settings-card {
+    background: #ffffff;
+
+    border:
+        1px solid #e5e7eb;
+
+    border-radius: 14px;
+
+    padding: 24px;
+
+    box-shadow:
+        0 4px 12px
+        rgba(0, 0, 0, 0.04);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.settings-card:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 25px
+        rgba(0, 0, 0, 0.08);
+}
+
+
+/* ==========================================
+   CARD HEADER
+========================================== */
+
+.settings-card-header {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    padding-bottom: 18px;
+
+    margin-bottom: 20px;
+
+    border-bottom:
+        1px solid #e5e7eb;
+}
+
+.settings-card-header h2 {
+    margin: 0;
+
+    color: #1f2937;
+
+    font-size: 18px;
+
+    font-weight: 700;
+}
+
+.settings-card-header p {
+    margin: 5px 0 0;
+
+    color: #6b7280;
+
+    font-size: 13px;
+}
+
+
+/* ==========================================
+   ICON
+========================================== */
+
+.settings-icon {
+    width: 44px;
+    height: 44px;
+
+    min-width: 44px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 10px;
+
+    font-size: 18px;
+}
+
+.settings-icon.blue {
+    background: #dbeafe;
+
+    color: #2563eb;
+}
+
+.settings-icon.green {
+    background: #dcfce7;
+
+    color: #16a34a;
+}
+
+.settings-icon.orange {
+    background: #ffedd5;
+
+    color: #ea580c;
+}
+
+.settings-icon.purple {
+    background: #f3e8ff;
+
+    color: #9333ea;
+}
+
+
+/* ==========================================
+   FORM
+========================================== */
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #1f2937;
+
+    font-size: 14px;
+
+    font-weight: 600;
+}
+
+.form-group input {
+    width: 100%;
+
+    height: 42px;
+
+    padding:
+        0 12px;
+
+    background: #ffffff;
+
+    color: #1f2937;
+
+    border:
+        1px solid #d1d5db;
+
+    border-radius: 8px;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.form-group input:focus {
+    border-color: #2563eb;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(37, 99, 235, 0.10);
+}
+
+
+/* ==========================================
+   NOTE
+========================================== */
+
+.settings-note {
+    margin-top: -10px;
+
+    margin-bottom: 18px;
+
+    color: #9ca3af;
+
+    font-size: 12px;
+}
+
+
+/* ==========================================
+   SETTING ROW
+========================================== */
+
+.setting-row {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 16px 0;
+
+    border-bottom:
+        1px solid #eef0f3;
+}
+
+.setting-row:last-child {
+    border-bottom: none;
+}
+
+.setting-row h3 {
+    margin: 0 0 5px;
+
+    color: #1f2937;
+
+    font-size: 15px;
+
+    font-weight: 600;
+}
+
+.setting-row p {
+    margin: 0;
+
+    color: #6b7280;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+}
+
+
+/* ==========================================
+   SWITCH
+========================================== */
+
+.switch {
+    position: relative;
+
+    display: inline-block;
+
+    width: 48px;
+
+    height: 26px;
+
+    flex-shrink: 0;
+}
+
+.switch input {
+    opacity: 0;
+
+    width: 0;
+
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+
+    inset: 0;
+
+    background: #d1d5db;
+
+    border-radius: 30px;
+
+    cursor: pointer;
+
+    transition:
+        0.25s;
+}
+
+.slider::before {
+    content: "";
+
+    position: absolute;
+
+    width: 20px;
+
+    height: 20px;
+
+    left: 3px;
+
+    bottom: 3px;
+
+    background: #ffffff;
+
+    border-radius: 50%;
+
+    transition:
+        0.25s;
+}
+
+.switch input:checked + .slider {
+    background: #2563eb;
+}
+
+.switch input:checked + .slider::before {
+    transform:
+        translateX(22px);
+}
+
+
+/* ==========================================
+   ACTIONS
+========================================== */
+
+.settings-actions {
+    grid-column:
+        1 / -1;
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 12px;
+
+    margin-top: 5px;
+}
+
+.reset-btn,
+.save-btn {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    min-height: 42px;
+
+    border: none;
+
+    padding:
+        12px 20px;
+
+    border-radius: 8px;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.reset-btn {
+    background: #e5e7eb;
+
+    color: #374151;
+}
+
+.reset-btn:hover {
+    background: #d1d5db;
+}
+
+.save-btn {
+    background: #2563eb;
+
+    color: #ffffff;
+}
+
+.save-btn:hover {
+    background: #1d4ed8;
+}
+
+.reset-btn:active,
+.save-btn:active {
+    transform:
+        scale(0.98);
+}
+
+
+/* ==========================================
+   SAVE MESSAGE
+========================================== */
+
+.save-message {
+    position: fixed;
+
+    right: 25px;
+
+    bottom: 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding:
+        14px 20px;
+
+    background: #16a34a;
+
+    color: #ffffff;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 10px 25px
+        rgba(0, 0, 0, 0.15);
+
+    opacity: 0;
+
+    transform:
+        translateY(100px);
+
+    pointer-events: none;
+
+    transition:
+        0.3s;
+
+    z-index: 3000;
+}
+
+.save-message.show {
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+
+/* ==========================================
+   DARK MODE
+   SAME SHARED ADMIN THEME
+========================================== */
+
+html.dark-mode body {
+    background: #111827;
+
+    color: #f9fafb;
+}
+
+html.dark-mode .main-content {
+    background: #111827;
+
+    color: #f9fafb;
+}
+
+
+/* Cards */
+
+html.dark-mode .settings-card {
+    background: #1f2937;
+
+    border-color: #374151;
+
+    box-shadow:
+        0 4px 12px
+        rgba(0, 0, 0, 0.20);
+}
+
+html.dark-mode .settings-card-header {
+    border-color: #374151;
+}
+
+html.dark-mode .settings-card-header h2 {
+    color: #f9fafb;
+}
+
+html.dark-mode .settings-card-header p {
+    color: #9ca3af;
+}
+
+
+/* Header */
+
+html.dark-mode .topbar h1 {
+    color: #f9fafb;
+}
+
+html.dark-mode .topbar p {
+    color: #9ca3af;
+}
+
+
+/* Form */
+
+html.dark-mode .form-group label {
+    color: #f9fafb;
+}
+
+html.dark-mode .form-group input {
+    background: #111827;
+
+    border-color: #374151;
+
+    color: #f9fafb;
+}
+
+html.dark-mode .form-group input:focus {
+    border-color: #60a5fa;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(96, 165, 250, 0.10);
+}
+
+html.dark-mode .settings-note {
+    color: #9ca3af;
+}
+
+
+/* Rows */
+
+html.dark-mode .setting-row {
+    border-color: #374151;
+}
+
+html.dark-mode .setting-row h3 {
+    color: #f9fafb;
+}
+
+html.dark-mode .setting-row p {
+    color: #9ca3af;
+}
+
+
+/* Reset */
+
+html.dark-mode .reset-btn {
+    background: #374151;
+
+    color: #f9fafb;
+}
+
+html.dark-mode .reset-btn:hover {
+    background: #4b5563;
+}
+
+
+/* Icons */
+
+html.dark-mode .settings-icon.blue {
+    background: #1e3a5f;
+
+    color: #60a5fa;
+}
+
+html.dark-mode .settings-icon.green {
+    background: #163d28;
+
+    color: #4ade80;
+}
+
+html.dark-mode .settings-icon.orange {
+    background: #4a3214;
+
+    color: #fb923c;
+}
+
+html.dark-mode .settings-icon.purple {
+    background: #35234f;
+
+    color: #c69cff;
+}
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 900px) {
+
+    .settings-container {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 768px) {
+
+    .settings-container {
+        grid-template-columns: 1fr;
+    }
+
+    .main-content {
+        padding: 20px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .main-content {
+        padding: 15px;
+    }
+
+    .settings-card {
+        padding: 18px;
+    }
+
+    .settings-actions {
+        flex-direction:
+            column-reverse;
+    }
+
+    .reset-btn,
+    .save-btn {
+        width: 100%;
+    }
+
+    .setting-row {
+        align-items: flex-start;
+    }
+
+}

@@ -1,0 +1,260 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KTV Monitoring - Reports</title>
+
+    <script>
+        (function () {
+            try {
+                const saved = localStorage.getItem("ktvSettings");
+                if (saved) {
+                    const settings = JSON.parse(saved);
+                    if (settings.darkMode === true) {
+                        document.documentElement.classList.add("dark-mode");
+                    }
+                }
+            } catch (error) {
+                console.error("Theme loading error:", error);
+            }
+        })();
+    </script>
+
+    <style>
+        html:not(.theme-ready) *,
+        html:not(.theme-ready) *::before,
+        html:not(.theme-ready) *::after {
+            transition: none !important;
+            animation: none !important;
+        }
+    </style>
+
+    <link rel="stylesheet" href="./css/report.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <aside class="sidebar">
+        <h2>KTV System</h2>
+        <ul>
+            <li>
+                <a href="./dashboard.html">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="./room.html">
+                    <i class="fa-solid fa-door-open"></i>
+                    <span>Rooms</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="./notifications.html">
+                    <i class="fa-solid fa-bell"></i>
+                    <span>Notifications</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="./activitylog.html">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    <span>Activity Log</span>
+                </a>
+            </li>
+
+            <li class="active">
+                <a href="./reports.html">
+                    <i class="fa-solid fa-chart-column"></i>
+                    <span>Reports</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="./settings.html">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Settings</span>
+                </a>
+            </li>
+
+            <li class="logout">
+                <a href="./login.html">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Logout</span>
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <main class="main">
+
+        <div class="page-header report-page-header">
+            <div>
+                <h1>Reports</h1>
+                <p>Monitor and review KTV session records</p>
+            </div>
+            <div id="currentDate" class="current-date"></div>
+        </div>
+
+        <section class="summary-cards">
+            <div class="summary-card">
+                <div class="summary-icon blue">
+                    <i class="fa-solid fa-list"></i>
+                </div>
+                <div>
+                    <h3 id="totalSessions">0</h3>
+                    <p>Total Sessions</p>
+                </div>
+            </div>
+
+            <div class="summary-card">
+                <div class="summary-icon green">
+                    <i class="fa-solid fa-circle-check"></i>
+                </div>
+                <div>
+                    <h3 id="completedSessions">0</h3>
+                    <p>Completed</p>
+                </div>
+            </div>
+
+            <div class="summary-card">
+                <div class="summary-icon orange">
+                    <i class="fa-solid fa-clock"></i>
+                </div>
+                <div>
+                    <h3 id="activeSessions">0</h3>
+                    <p>Active / Expired</p>
+                </div>
+            </div>
+
+            <div class="summary-card">
+                <div class="summary-icon purple">
+                    <i class="fa-solid fa-hourglass-half"></i>
+                </div>
+                <div>
+                    <h3 id="totalHours">0h</h3>
+                    <p>Total Hours</p>
+                </div>
+            </div>
+
+            <div class="summary-card">
+                <div class="summary-icon green">
+                    <i class="fa-solid fa-peso-sign"></i>
+                </div>
+                <div>
+                    <h3 id="totalRevenue">₱0.00</h3>
+                    <p>Estimated Revenue</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="report-section">
+
+            <div class="report-header">
+                <div>
+                    <h2>Session History</h2>
+                    <p>Automatically synchronized from Room activity and current sessions</p>
+                </div>
+
+                <div class="report-actions">
+                    <button type="button" class="secondary-button" id="refreshReports">
+                        <i class="fa-solid fa-rotate"></i>
+                        Refresh
+                    </button>
+
+                    <button type="button" class="secondary-button" id="printReports">
+                        <i class="fa-solid fa-print"></i>
+                        Print
+                    </button>
+
+                    <button type="button" class="secondary-button" id="exportReports">
+                        <i class="fa-solid fa-file-csv"></i>
+                        Export CSV
+                    </button>
+
+                    <button type="button" class="clear-button" id="clearReports">
+                        <i class="fa-solid fa-trash"></i>
+                        Clear Reports
+                    </button>
+                </div>
+            </div>
+
+            <div class="filters">
+                <input type="text" id="searchReport" placeholder="Search room or pricing tier...">
+
+                <select id="statusFilter">
+                    <option value="all">All Status</option>
+                    <option value="active">Active</option>
+                    <option value="completed">Completed</option>
+                    <option value="expired">Expired</option>
+                </select>
+
+                <input type="date" id="dateFilter">
+
+                <button type="button" class="filter-clear" id="clearFilters">
+                    Clear Filters
+                </button>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Room</th>
+                            <th>Pricing Tier</th>
+                            <th>Rate</th>
+                            <th>Date</th>
+                            <th>Start Time</th>
+                            <th>Duration</th>
+                            <th>Estimated Total</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="reportTable"></tbody>
+                </table>
+            </div>
+
+        </section>
+
+    </main>
+
+    <div id="sessionModal" class="report-modal-overlay" aria-hidden="true">
+        <div class="report-modal" role="dialog" aria-modal="true">
+            <div class="modal-heading">
+                <div class="modal-icon">
+                    <i class="fa-solid fa-chart-line"></i>
+                </div>
+                <div>
+                    <h2>Session Details</h2>
+                    <p>Complete record for the selected session</p>
+                </div>
+            </div>
+
+            <div id="sessionDetails" class="session-details"></div>
+
+            <div class="modal-actions">
+                <button type="button" class="secondary-button" id="closeSessionModal">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/theme.js"></script>
+    <script src="./js/report.js"></script>
+    <script src="./js/auth.js"></script>
+
+    <script>
+        window.addEventListener("load", function () {
+            document.documentElement.classList.add("theme-ready");
+        });
+    </script>
+</body>
+</html>

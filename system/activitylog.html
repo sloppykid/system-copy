@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Activity Log - KTV System</title>
+
+
+    <!-- ========================================
+         APPLY SAVED THEME BEFORE PAGE RENDERS
+    ======================================== -->
+
+    <script>
+        (function () {
+
+            try {
+
+                const saved =
+                    localStorage.getItem("ktvSettings");
+
+                if (saved) {
+
+                    const settings =
+                        JSON.parse(saved);
+
+                    if (settings.darkMode === true) {
+
+                        document.documentElement.classList.add(
+                            "dark-mode"
+                        );
+
+                    }
+
+                }
+
+            } catch (error) {
+
+                console.error(
+                    "Theme loading error:",
+                    error
+                );
+
+            }
+
+        })();
+    </script>
+
+
+    <!-- ========================================
+         CSS
+    ======================================== -->
+
+    <link
+        rel="stylesheet"
+        href="./css/activitylog.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="./css/common.css"
+    >
+
+
+    <!-- FONT AWESOME -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+
+    <!-- ========================================
+         DISABLE THEME TRANSITION DURING LOAD
+    ======================================== -->
+
+    <style>
+
+        html:not(.theme-ready) *,
+        html:not(.theme-ready) *::before,
+        html:not(.theme-ready) *::after {
+
+            transition: none !important;
+
+            animation: none !important;
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ========================================
+         SIDEBAR
+    ======================================== -->
+
+    <aside class="sidebar">
+
+        <h2>KTV System</h2>
+
+
+        <ul>
+
+
+            <!-- DASHBOARD -->
+
+            <li>
+
+                <a href="./dashboard.html">
+
+                    <i class="fa-solid fa-house"></i>
+
+                    <span>
+                        Dashboard
+                    </span>
+
+                </a>
+
+            </li>
+
+
+            <!-- ROOMS -->
+
+            <li>
+
+                <a href="./room.html">
+
+                    <i class="fa-solid fa-door-open"></i>
+
+                    <span>
+                        Rooms
+                    </span>
+
+                </a>
+
+            </li>
+
+
+            <!-- NOTIFICATIONS -->
+
+            <li>
+
+                <a href="./notifications.html">
+
+                    <i class="fa-solid fa-bell"></i>
+
+                    <span>
+                        Notifications
+                    </span>
+
+                </a>
+
+            </li>
+
+
+            <!-- ACTIVITY LOG -->
+
+            <li class="active">
+
+                <a href="./activitylog.html">
+
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+
+                    <span>
+                        Activity Log
+                    </span>
+
+                </a>
+
+            </li>
+
+
+            <!-- REPORTS -->
+
+            <li>
+
+                <a href="./reports.html">
+
+                    <i class="fa-solid fa-chart-column"></i>
+
+                    <span>
+                        Reports
+                    </span>
+
+                </a>
+
+            </li>
+
+
+            <!-- SETTINGS -->
+
+            <li>
+
+                <a href="./settings.html">
+
+                    <i class="fa-solid fa-gear"></i>
+
+                    <span>
+                        Settings
+                    </span>
+
+                </a>
+
+            </li>
+
+
+            <!-- LOGOUT -->
+
+            <li class="logout">
+
+                <a href="./login.html">
+
+                    <i class="fa-solid fa-right-from-bracket"></i>
+
+                    <span>
+                        Logout
+                    </span>
+
+                </a>
+
+            </li>
+
+
+        </ul>
+
+    </aside>
+
+
+
+    <!-- ========================================
+         MAIN CONTENT
+    ======================================== -->
+
+    <main class="main">
+
+
+        <div class="page-header">
+
+            <h1>
+                Activity Log
+            </h1>
+
+            <p>
+                Full system event history
+            </p>
+
+        </div>
+
+
+
+        <!-- ========================================
+             ACTIVITY CARD
+        ======================================== -->
+
+        <section class="activity-card">
+
+            <!-- activitylog.js fills this area -->
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- ========================================
+         JAVASCRIPT
+    ======================================== -->
+
+    <script src="./js/theme.js"></script>
+    <script src="./js/activitylog.js"></script>
+    <script src="js/auth.js"></script>
+
+
+    <!-- Enable normal transitions AFTER initial load -->
+
+    <script>
+
+        window.addEventListener(
+            "load",
+            function () {
+
+                document.documentElement.classList.add(
+                    "theme-ready"
+                );
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,2082 @@
+/* =========================================================
+   KTV MONITORING SYSTEM
+   ADMIN - ROOM MANAGEMENT
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    background: #f5f7fb;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+    font-family: "Segoe UI", Arial, sans-serif;
+
+    background: #f5f7fb !important;
+    color: #1f2937 !important;
+
+    min-height: 100vh;
+}
+
+
+/* =========================================================
+   ADMIN SIDEBAR
+========================================================= */
+
+.sidebar {
+    position: fixed !important;
+
+    top: 0 !important;
+    left: 0 !important;
+
+    width: 240px !important;
+    height: 100vh !important;
+
+    padding: 25px 15px !important;
+
+    background: #1e293b !important;
+
+    color: #ffffff !important;
+
+    border: none !important;
+
+    box-shadow:
+        3px 0 12px rgba(0, 0, 0, 0.08) !important;
+
+    z-index: 1000;
+
+    overflow-y: auto;
+}
+
+.sidebar h2 {
+    margin: 0 0 35px 0 !important;
+
+    padding: 0 !important;
+
+    text-align: center;
+
+    color: #ffffff !important;
+
+    font-size: 22px !important;
+    font-weight: 700 !important;
+}
+
+.sidebar ul {
+    list-style: none !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.sidebar li {
+    margin-bottom: 8px !important;
+}
+
+.sidebar li a {
+    display: flex !important;
+
+    align-items: center !important;
+
+    gap: 12px !important;
+
+    width: 100% !important;
+
+    padding: 12px 15px !important;
+
+    color: #cbd5e1 !important;
+
+    text-decoration: none !important;
+
+    border-radius: 8px !important;
+
+    font-size: 14px !important;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease !important;
+}
+
+.sidebar li a:hover {
+    background: #334155 !important;
+
+    color: #ffffff !important;
+}
+
+.sidebar li.active a {
+    background: #2563eb !important;
+
+    color: #ffffff !important;
+}
+
+.sidebar li a i {
+    width: 18px !important;
+
+    min-width: 18px !important;
+
+    text-align: center !important;
+}
+
+.sidebar .logout {
+    margin-top: 30px !important;
+}
+
+.sidebar .logout a {
+    color: #fca5a5 !important;
+}
+
+.sidebar .logout a:hover {
+    background: rgba(239, 68, 68, 0.15) !important;
+
+    color: #fecaca !important;
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+========================================================= */
+
+.main {
+    margin-left: 240px !important;
+
+    width: calc(100% - 240px) !important;
+
+    min-height: 100vh;
+
+    padding: 30px !important;
+
+    background: #f5f7fb !important;
+}
+
+
+/* =========================================================
+   PAGE HEADER
+========================================================= */
+
+.page-header {
+    margin-bottom: 18px !important;
+}
+
+.page-header h1 {
+    margin: 0 0 6px 0 !important;
+
+    color: #1f2937 !important;
+
+    font-size: 28px !important;
+
+    font-weight: 700 !important;
+}
+
+.page-header p {
+    margin: 0 !important;
+
+    color: #6b7280 !important;
+
+    font-size: 14px !important;
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.search-box {
+    display: block !important;
+
+    width: 250px !important;
+
+    height: 42px !important;
+
+    padding: 0 12px !important;
+
+    margin: 0 0 22px 0 !important;
+
+    background: #ffffff !important;
+
+    color: #1f2937 !important;
+
+    border: 1px solid #d1d5db !important;
+
+    border-radius: 8px !important;
+
+    outline: none !important;
+
+    font-family: "Segoe UI", Arial, sans-serif !important;
+
+    font-size: 14px !important;
+}
+
+.search-box::placeholder {
+    color: #9ca3af !important;
+}
+
+.search-box:focus {
+    border-color: #2563eb !important;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(37, 99, 235, 0.10) !important;
+}
+
+
+/* =========================================================
+   ROOM GRID
+========================================================= */
+
+.room-grid {
+    display: grid !important;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr)) !important;
+
+    gap: 20px !important;
+
+    width: 100% !important;
+}
+
+
+/* =========================================================
+   ROOM CARD
+========================================================= */
+
+.room {
+    position: relative !important;
+
+    width: 100% !important;
+
+    min-height: 170px !important;
+
+    padding: 24px !important;
+
+    background: #ffffff !important;
+
+    color: #1f2937 !important;
+
+    border: 1px solid #e5e7eb !important;
+
+    border-left:
+        5px solid #16a34a !important;
+
+    border-radius: 14px !important;
+
+    box-shadow:
+        0 4px 12px
+        rgba(0, 0, 0, 0.04) !important;
+
+    transition: none !important;
+}
+
+.room:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 25px
+        rgba(0, 0, 0, 0.08) !important;
+}
+
+
+/* =========================================================
+   ROOM TITLE
+========================================================= */
+
+.room h3 {
+    margin: 0 0 12px 0 !important;
+
+    color: #1f2937 !important;
+
+    font-size: 17px !important;
+
+    font-weight: 700 !important;
+}
+
+
+/* =========================================================
+   ROOM STATUS
+========================================================= */
+
+.room .status {
+    margin: 0 0 8px 0 !important;
+
+    color: #6b7280 !important;
+
+    font-size: 13px !important;
+
+    line-height: 1.4;
+}
+
+.room .dot {
+    display: inline-block;
+
+    width: 10px;
+
+    height: 10px;
+
+    margin-right: 7px;
+
+    border-radius: 50%;
+
+    vertical-align: middle;
+
+    background: #16a34a;
+}
+
+.room p {
+    margin: 0 0 15px 0 !important;
+
+    color: #6b7280 !important;
+
+    font-size: 13px !important;
+
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   AVAILABLE
+========================================================= */
+
+.room.available {
+    border-left-color: #16a34a !important;
+}
+
+.room.available .dot {
+    background: #22c55e !important;
+}
+
+.room.available .status {
+    color: #16a34a !important;
+}
+
+
+/* =========================================================
+   OCCUPIED / ACTIVE
+   Green = active session
+========================================================= */
+
+.room.occupied {
+    border-left-color: #16a34a !important;
+}
+
+.room.occupied .dot {
+    background: #16a34a !important;
+}
+
+.room.occupied .status {
+    color: #16a34a !important;
+}
+
+
+/* =========================================================
+   WARNING / EXPIRING SOON
+   Yellow = session is near expiration
+========================================================= */
+
+.room.warning {
+    border-left-color: #eab308 !important;
+}
+
+.room.warning .dot {
+    background: #eab308 !important;
+}
+
+.room.warning .status {
+    color: #ca8a04 !important;
+}
+
+
+/* =========================================================
+   EXPIRED
+========================================================= */
+
+.room.expired {
+    border-left-color: #dc2626 !important;
+}
+
+.room.expired .dot {
+    background: #ef4444 !important;
+}
+
+.room.expired .status {
+    color: #dc2626 !important;
+}
+
+
+/* =========================================================
+   ROOM BUTTONS
+========================================================= */
+
+.room button {
+    width: 100% !important;
+
+    padding: 10px 14px !important;
+
+    margin: 0 !important;
+
+    border: none !important;
+
+    border-radius: 8px !important;
+
+    background: #2563eb !important;
+
+    color: #ffffff !important;
+
+    font-family: "Segoe UI", Arial, sans-serif !important;
+
+    font-size: 13px !important;
+
+    font-weight: 600 !important;
+
+    cursor: pointer !important;
+
+    transition: none !important;
+}
+
+.room button:hover {
+    background: #1d4ed8 !important;
+}
+
+.room button:active {
+    transform: scale(0.98);
+}
+
+
+/* =========================================================
+   ROOM ACTIONS
+========================================================= */
+
+.room-actions {
+    display: flex !important;
+
+    flex-direction: column !important;
+
+    gap: 8px !important;
+
+    width: 100% !important;
+
+    margin-top: 12px !important;
+}
+
+.room-actions button {
+    width: 100% !important;
+}
+
+.extend-button {
+    background: #16a34a !important;
+}
+
+.extend-button:hover {
+    background: #15803d !important;
+}
+
+.end-button,
+.clear-button {
+    background: #dc2626 !important;
+}
+
+.end-button:hover,
+.clear-button:hover {
+    background: #b91c1c !important;
+}
+
+
+/* =========================================================
+   MODAL OVERLAY
+========================================================= */
+
+.modal-overlay {
+    position: fixed !important;
+
+    inset: 0 !important;
+
+    display: none;
+
+    align-items: center !important;
+
+    justify-content: center !important;
+
+    padding: 20px !important;
+
+    background:
+        rgba(15, 23, 42, 0.60) !important;
+
+    z-index: 5000 !important;
+}
+
+.modal-overlay.show {
+    display: flex !important;
+}
+
+
+/* =========================================================
+   MODAL BOX
+========================================================= */
+
+.modal-box {
+    width: 100% !important;
+
+    max-width: 450px !important;
+
+    max-height: 90vh !important;
+
+    overflow-y: auto !important;
+
+    padding: 30px !important;
+
+    background: #ffffff !important;
+
+    color: #1f2937 !important;
+
+    border:
+        1px solid #e5e7eb !important;
+
+    border-radius: 14px !important;
+
+    box-shadow:
+        0 20px 45px
+        rgba(0, 0, 0, 0.20) !important;
+
+    animation: none !important;
+}
+
+
+
+/* =========================================================
+   MODAL ICON
+========================================================= */
+
+.modal-icon {
+    width: 55px !important;
+
+    height: 55px !important;
+
+    margin: 0 auto 15px !important;
+
+    display: flex !important;
+
+    align-items: center !important;
+
+    justify-content: center !important;
+
+    border-radius: 10px !important;
+
+    background: #dbeafe !important;
+
+    color: #2563eb !important;
+
+    font-size: 22px !important;
+}
+
+
+/* =========================================================
+   START SESSION MODAL
+========================================================= */
+
+.start-session-box {
+    text-align: left !important;
+}
+
+.start-session-box .start-icon {
+    background: #dbeafe !important;
+
+    color: #2563eb !important;
+}
+
+.start-session-box h2 {
+    margin: 0 0 6px 0 !important;
+
+    text-align: center !important;
+
+    color: #1f2937 !important;
+
+    font-size: 22px !important;
+}
+
+.start-room-label {
+    margin: 0 0 22px 0 !important;
+
+    text-align: center !important;
+
+    color: #6b7280 !important;
+
+    font-size: 14px !important;
+}
+
+.start-room-label strong {
+    color: #2563eb !important;
+}
+
+
+/* =========================================================
+   EXTEND SESSION MODAL
+========================================================= */
+
+.extend-session-box {
+    text-align: left !important;
+}
+
+.extend-session-box .extend-icon {
+    background: #dcfce7 !important;
+
+    color: #16a34a !important;
+}
+
+.extend-session-box h2 {
+    margin: 0 0 6px 0 !important;
+
+    text-align: center !important;
+
+    color: #1f2937 !important;
+
+    font-size: 22px !important;
+}
+
+.extend-room-label {
+    margin: 0 0 18px 0 !important;
+
+    text-align: center !important;
+
+    color: #6b7280 !important;
+
+    font-size: 14px !important;
+}
+
+.extend-room-label strong {
+    color: #16a34a !important;
+}
+
+
+/* =========================================================
+   CURRENT TIME BOX
+========================================================= */
+
+.current-time-box {
+    display: flex !important;
+
+    flex-direction: column !important;
+
+    align-items: center !important;
+
+    gap: 5px !important;
+
+    padding: 14px 16px !important;
+
+    margin-bottom: 18px !important;
+
+    background: #f5f7fb !important;
+
+    border:
+        1px solid #e5e7eb !important;
+
+    border-radius: 10px !important;
+}
+
+.current-time-box span {
+    color: #6b7280 !important;
+
+    font-size: 12px !important;
+}
+
+.current-time-box strong {
+    color: #1f2937 !important;
+
+    font-size: 20px !important;
+
+    font-weight: 700 !important;
+}
+
+
+/* =========================================================
+   MODAL FORM
+========================================================= */
+
+.modal-form-group {
+    margin-bottom: 16px !important;
+}
+
+.modal-form-group label {
+    display: block !important;
+
+    margin-bottom: 7px !important;
+
+    color: #374151 !important;
+
+    font-size: 13px !important;
+
+    font-weight: 600 !important;
+}
+
+.modal-form-group input,
+.modal-form-group select {
+    width: 100% !important;
+
+    height: 42px !important;
+
+    padding: 0 12px !important;
+
+    background: #ffffff !important;
+
+    color: #1f2937 !important;
+
+    border:
+        1px solid #d1d5db !important;
+
+    border-radius: 8px !important;
+
+    outline: none !important;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif !important;
+
+    font-size: 14px !important;
+}
+
+.modal-form-group input::placeholder {
+    color: #9ca3af !important;
+}
+
+.modal-form-group input:focus,
+.modal-form-group select:focus {
+    border-color: #2563eb !important;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(37, 99, 235, 0.10) !important;
+}
+
+
+/* =========================================================
+   MODAL ACTIONS
+========================================================= */
+
+.modal-actions {
+    display: flex !important;
+
+    justify-content: flex-end !important;
+
+    gap: 10px !important;
+
+    margin-top: 20px !important;
+}
+
+.modal-cancel,
+.modal-confirm,
+.modal-start,
+.modal-extend {
+    display: inline-flex !important;
+
+    align-items: center !important;
+
+    justify-content: center !important;
+
+    gap: 7px !important;
+
+    min-height: 42px !important;
+
+    padding: 11px 18px !important;
+
+    border: none !important;
+
+    border-radius: 8px !important;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif !important;
+
+    font-size: 14px !important;
+
+    font-weight: 600 !important;
+
+    cursor: pointer !important;
+
+    transition: none !important;
+}
+
+.modal-cancel {
+    background: #e5e7eb !important;
+
+    color: #374151 !important;
+}
+
+.modal-cancel:hover {
+    background: #d1d5db !important;
+}
+
+.modal-confirm {
+    background: #dc2626 !important;
+
+    color: #ffffff !important;
+}
+
+.modal-confirm:hover {
+    background: #b91c1c !important;
+}
+
+.modal-start,
+.modal-extend {
+    background: #2563eb !important;
+
+    color: #ffffff !important;
+}
+
+.modal-start:hover,
+.modal-extend:hover {
+    background: #1d4ed8 !important;
+}
+
+.modal-start:active,
+.modal-extend:active,
+.modal-confirm:active,
+.modal-cancel:active {
+    transform: scale(0.98);
+}
+
+
+/* =========================================================
+   MODAL WARNING
+========================================================= */
+
+.modal-warning {
+    display: flex !important;
+
+    align-items: center !important;
+
+    justify-content: center !important;
+
+    gap: 8px !important;
+
+    padding: 12px !important;
+
+    margin-bottom: 5px !important;
+
+    background: #fff7ed !important;
+
+    color: #9a5b08 !important;
+
+    border-radius: 8px !important;
+
+    font-size: 13px !important;
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+html.dark-mode body {
+    background: #111827 !important;
+
+    color: #f9fafb !important;
+}
+
+html.dark-mode .main {
+    background: #111827 !important;
+
+    color: #f9fafb !important;
+}
+
+html.dark-mode .sidebar {
+    background: #0f172a !important;
+
+    color: #ffffff !important;
+}
+
+html.dark-mode .sidebar li a {
+    color: #cbd5e1 !important;
+}
+
+html.dark-mode .sidebar li a:hover {
+    background: #1e293b !important;
+
+    color: #ffffff !important;
+}
+
+html.dark-mode .sidebar li.active a {
+    background: #2563eb !important;
+
+    color: #ffffff !important;
+}
+
+html.dark-mode .page-header h1 {
+    color: #f9fafb !important;
+}
+
+html.dark-mode .page-header p {
+    color: #9ca3af !important;
+}
+
+html.dark-mode .search-box {
+    background: #111827 !important;
+
+    color: #f9fafb !important;
+
+    border-color: #374151 !important;
+}
+
+html.dark-mode .search-box::placeholder {
+    color: #6b7280 !important;
+}
+
+html.dark-mode .room {
+    background: #1f2937 !important;
+
+    color: #f9fafb !important;
+
+    border-top-color: #374151 !important;
+
+    border-right-color: #374151 !important;
+
+    border-bottom-color: #374151 !important;
+}
+
+html.dark-mode .room h3 {
+    color: #f9fafb !important;
+}
+
+html.dark-mode .room p {
+    color: #9ca3af !important;
+}
+
+html.dark-mode .room .status {
+    color: #9ca3af !important;
+}
+
+html.dark-mode .room.available {
+    border-left-color: #22c55e !important;
+}
+
+html.dark-mode .room.available .dot {
+    background: #22c55e !important;
+}
+
+html.dark-mode .room.available .status {
+    color: #4ade80 !important;
+}
+
+html.dark-mode .room.occupied {
+    border-left-color: #22c55e !important;
+}
+
+html.dark-mode .room.occupied .dot {
+    background: #22c55e !important;
+}
+
+html.dark-mode .room.occupied .status {
+    color: #4ade80 !important;
+}
+
+html.dark-mode .room.warning {
+    border-left-color: #eab308 !important;
+}
+
+html.dark-mode .room.warning .dot {
+    background: #eab308 !important;
+}
+
+html.dark-mode .room.warning .status {
+    color: #facc15 !important;
+}
+
+html.dark-mode .room.expired {
+    border-left-color: #ef4444 !important;
+}
+
+html.dark-mode .room.expired .dot {
+    background: #ef4444 !important;
+}
+
+html.dark-mode .room.expired .status {
+    color: #f87171 !important;
+}
+
+
+/* =========================================================
+   DARK MODE - MODALS
+========================================================= */
+
+html.dark-mode .modal-box {
+    background: #1f2937 !important;
+
+    color: #f9fafb !important;
+
+    border-color: #374151 !important;
+}
+
+html.dark-mode .start-session-box h2,
+html.dark-mode .extend-session-box h2 {
+    color: #f9fafb !important;
+}
+
+html.dark-mode .start-room-label,
+html.dark-mode .extend-room-label {
+    color: #9ca3af !important;
+}
+
+html.dark-mode .start-room-label strong {
+    color: #60a5fa !important;
+}
+
+html.dark-mode .extend-room-label strong {
+    color: #4ade80 !important;
+}
+
+html.dark-mode .modal-form-group label {
+    color: #f9fafb !important;
+}
+
+html.dark-mode .modal-form-group input,
+html.dark-mode .modal-form-group select {
+    background: #111827 !important;
+
+    color: #f9fafb !important;
+
+    border-color: #374151 !important;
+}
+
+html.dark-mode .modal-form-group input::placeholder {
+    color: #6b7280 !important;
+}
+
+html.dark-mode .current-time-box {
+    background: #111827 !important;
+
+    border-color: #374151 !important;
+}
+
+html.dark-mode .current-time-box span {
+    color: #9ca3af !important;
+}
+
+html.dark-mode .current-time-box strong {
+    color: #f9fafb !important;
+}
+
+html.dark-mode .start-session-box .start-icon {
+    background: #1e3a5f !important;
+
+    color: #60a5fa !important;
+}
+
+html.dark-mode .extend-session-box .extend-icon {
+    background: #163d28 !important;
+
+    color: #4ade80 !important;
+}
+
+html.dark-mode .modal-cancel {
+    background: #374151 !important;
+
+    color: #f9fafb !important;
+}
+
+html.dark-mode .modal-cancel:hover {
+    background: #4b5563 !important;
+}
+
+html.dark-mode .modal-warning {
+    background: #422006 !important;
+
+    color: #fbbf24 !important;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1200px) {
+
+    .room-grid {
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr)) !important;
+    }
+
+}
+
+
+@media (max-width: 900px) {
+
+    .room-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr)) !important;
+    }
+
+}
+
+
+@media (max-width: 750px) {
+
+    .sidebar {
+        width: 200px !important;
+    }
+
+    .main {
+        margin-left: 200px !important;
+
+        width:
+            calc(100% - 200px) !important;
+
+        padding: 25px !important;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .sidebar {
+        position: relative !important;
+
+        width: 100% !important;
+
+        height: auto !important;
+    }
+
+    .main {
+        margin-left: 0 !important;
+
+        width: 100% !important;
+
+        padding: 20px !important;
+    }
+
+    .room-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .search-box {
+        width: 100% !important;
+    }
+
+    .modal-box {
+        max-width: 100% !important;
+
+        padding: 24px 20px !important;
+    }
+
+    .modal-actions {
+        flex-direction: column-reverse !important;
+    }
+
+    .modal-cancel,
+    .modal-confirm,
+    .modal-start,
+    .modal-extend {
+        width: 100% !important;
+    }
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+a:focus-visible {
+    outline: 3px solid
+        rgba(37, 99, 235, 0.35);
+
+    outline-offset: 2px;
+}
+
+/* =========================================================
+   SESSION PRICING
+========================================================= */
+
+.pricing-note {
+    display: block;
+    margin-top: 6px;
+    color: #9ca3af;
+    font-size: 11px;
+}
+
+.pricing-tiers-box {
+    margin-top: 4px;
+    margin-bottom: 16px;
+    padding: 12px 14px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+}
+
+.pricing-tiers-title {
+    margin-bottom: 8px;
+    color: #374151;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.pricing-tier-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 6px 0;
+    border-bottom: 1px solid #eef0f3;
+}
+
+.pricing-tier-row:last-child {
+    border-bottom: none;
+}
+
+.pricing-tier-row span {
+    color: #6b7280;
+    font-size: 11px;
+}
+
+.pricing-tier-row strong {
+    color: #1f2937;
+    font-size: 11px;
+}
+
+.session-pricing-box {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    padding: 14px;
+    background: #f5f7fb;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+}
+
+.session-pricing-box div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.session-pricing-box span {
+    color: #6b7280;
+    font-size: 11px;
+}
+
+.session-pricing-box strong {
+    color: #1f2937;
+    font-size: 14px;
+}
+
+.room-session-meta {
+    margin-top: -7px;
+    margin-bottom: 14px;
+    color: #64748b;
+    font-size: 11px;
+    line-height: 1.4;
+}
+
+html.dark-mode .pricing-note {
+    color: #6b7280;
+}
+
+html.dark-mode .pricing-tiers-box {
+    background: #1f2937;
+    border-color: #374151;
+}
+
+html.dark-mode .pricing-tiers-title {
+    color: #f9fafb;
+}
+
+html.dark-mode .pricing-tier-row {
+    border-color: #374151;
+}
+
+html.dark-mode .pricing-tier-row span {
+    color: #9ca3af;
+}
+
+html.dark-mode .pricing-tier-row strong {
+    color: #f9fafb;
+}
+
+html.dark-mode .session-pricing-box {
+    background: #111827;
+    border-color: #374151;
+}
+
+html.dark-mode .session-pricing-box span {
+    color: #9ca3af;
+}
+
+html.dark-mode .session-pricing-box strong {
+    color: #f9fafb;
+}
+
+html.dark-mode .room-session-meta {
+    color: #94a3b8;
+}
+
+
+/* =========================================================
+   ROOM MANAGEMENT
+   ADD ROOM / EDIT ROOM / VIP
+========================================================= */
+
+.room-card-header {
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    gap: 12px;
+
+    width: 100%;
+}
+
+.room-card-header h3 {
+    margin-bottom: 0 !important;
+}
+
+.room-card-header-right {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    flex-shrink: 0;
+}
+
+.room-edit-button {
+    width: 32px !important;
+
+    height: 32px !important;
+
+    min-width: 32px !important;
+
+    padding: 0 !important;
+
+    margin: 0 !important;
+
+    display: inline-flex !important;
+
+    align-items: center !important;
+
+    justify-content: center !important;
+
+    border-radius: 8px !important;
+
+    background: #e5e7eb !important;
+
+    color: #374151 !important;
+
+    font-size: 12px !important;
+
+    cursor: pointer !important;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease !important;
+}
+
+.room-edit-button:hover {
+    background: #dbeafe !important;
+
+    color: #2563eb !important;
+}
+
+.room-type-badge {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 24px;
+
+    padding: 4px 8px;
+
+    border-radius: 999px;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.3px;
+
+    text-transform: uppercase;
+}
+
+.room-type-badge.regular {
+    background: #e5e7eb;
+
+    color: #475569;
+}
+
+.room-type-badge.vip {
+    background: #f3e8ff;
+
+    color: #9333ea;
+}
+
+.room-display-name {
+    margin-top: 6px;
+
+    margin-bottom: 8px;
+
+    color: #64748b;
+
+    font-size: 12px;
+
+    font-weight: 600;
+}
+
+.room-description {
+    margin-top: -2px;
+
+    margin-bottom: 8px;
+
+    color: #94a3b8;
+
+    font-size: 11px;
+
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   ADD ROOM CARD
+========================================================= */
+
+.add-room-card {
+    width: 100%;
+
+    min-height: 170px;
+
+    padding: 24px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    border: 2px dashed #cbd5e1;
+
+    border-radius: 14px;
+
+    background: transparent;
+
+    color: #64748b;
+
+    cursor: pointer;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.add-room-card:hover {
+    border-color: #2563eb;
+
+    background: rgba(37, 99, 235, 0.04);
+
+    color: #2563eb;
+
+    transform: translateY(-2px);
+}
+
+.add-room-icon {
+    width: 48px;
+
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 12px;
+
+    background: #dbeafe;
+
+    color: #2563eb;
+
+    font-size: 20px;
+}
+
+.add-room-card strong {
+    color: #334155;
+
+    font-size: 15px;
+}
+
+.add-room-card span {
+    color: #94a3b8;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   ROOM MANAGEMENT MODAL
+========================================================= */
+
+.room-management-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 6000;
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    background:
+        rgba(15, 23, 42, 0.60);
+}
+
+.room-management-overlay.show {
+    display: flex;
+}
+
+.room-management-modal {
+    width: 100%;
+
+    max-width: 480px;
+
+    padding: 28px;
+
+    background: #ffffff;
+
+    border:
+        1px solid #e5e7eb;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 20px 45px
+        rgba(0, 0, 0, 0.20);
+}
+
+.room-management-icon {
+    width: 52px;
+
+    height: 52px;
+
+    margin-bottom: 16px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 10px;
+
+    background: #dbeafe;
+
+    color: #2563eb;
+
+    font-size: 20px;
+}
+
+.room-management-heading {
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-bottom: 18px;
+}
+
+.room-management-heading h2 {
+    margin: 0 0 5px;
+
+    color: #1f2937;
+
+    font-size: 21px;
+}
+
+.room-management-heading p {
+    margin: 0;
+
+    color: #6b7280;
+
+    font-size: 13px;
+
+    line-height: 1.4;
+}
+
+.room-management-close {
+    width: 34px !important;
+
+    height: 34px !important;
+
+    min-width: 34px !important;
+
+    padding: 0 !important;
+
+    margin: 0 !important;
+
+    display: inline-flex !important;
+
+    align-items: center !important;
+
+    justify-content: center !important;
+
+    border: none !important;
+
+    border-radius: 8px !important;
+
+    background: #f1f5f9 !important;
+
+    color: #64748b !important;
+
+    cursor: pointer !important;
+
+    font-size: 15px !important;
+}
+
+.room-management-close:hover {
+    background: #e2e8f0 !important;
+
+    color: #1e293b !important;
+}
+
+.room-management-room-number {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 12px;
+
+    padding: 12px 14px;
+
+    margin-bottom: 20px;
+
+    background: #f8fafc;
+
+    border:
+        1px solid #e2e8f0;
+
+    border-radius: 9px;
+}
+
+.room-management-room-number span {
+    color: #64748b;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+.room-management-room-number strong {
+    color: #2563eb;
+
+    font-size: 16px;
+}
+
+.management-field {
+    margin-bottom: 16px;
+}
+
+.management-field label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #374151;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+.management-field input,
+.management-field select,
+.management-field textarea {
+    width: 100%;
+
+    padding: 10px 12px;
+
+    background: #ffffff;
+
+    color: #1f2937;
+
+    border:
+        1px solid #d1d5db;
+
+    border-radius: 8px;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    font-size: 14px;
+
+    outline: none;
+}
+
+.management-field input,
+.management-field select {
+    height: 42px;
+}
+
+.management-field textarea {
+    min-height: 82px;
+
+    resize: vertical;
+}
+
+.management-field input:focus,
+.management-field select:focus,
+.management-field textarea:focus {
+    border-color: #2563eb;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(37, 99, 235, 0.10);
+}
+
+.room-management-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    margin-top: 22px;
+}
+
+.management-cancel,
+.management-save {
+    min-height: 42px;
+
+    padding: 11px 18px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.management-cancel {
+    background: #e5e7eb;
+
+    color: #374151;
+}
+
+.management-cancel:hover {
+    background: #d1d5db;
+}
+
+.management-save {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    background: #2563eb;
+
+    color: #ffffff;
+}
+
+.management-save:hover {
+    background: #1d4ed8;
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+html.dark-mode .room-edit-button {
+    background: #374151 !important;
+
+    color: #cbd5e1 !important;
+}
+
+html.dark-mode .room-edit-button:hover {
+    background: #1e3a5f !important;
+
+    color: #60a5fa !important;
+}
+
+html.dark-mode .room-type-badge.regular {
+    background: #374151;
+
+    color: #cbd5e1;
+}
+
+html.dark-mode .room-type-badge.vip {
+    background: #35234f;
+
+    color: #c69cff;
+}
+
+html.dark-mode .room-display-name {
+    color: #94a3b8;
+}
+
+html.dark-mode .room-description {
+    color: #64748b;
+}
+
+html.dark-mode .add-room-card {
+    border-color: #475569;
+
+    background: transparent;
+
+    color: #94a3b8;
+}
+
+html.dark-mode .add-room-card:hover {
+    border-color: #60a5fa;
+
+    background: rgba(37, 99, 235, 0.08);
+
+    color: #60a5fa;
+}
+
+html.dark-mode .add-room-icon {
+    background: #1e3a5f;
+
+    color: #60a5fa;
+}
+
+html.dark-mode .add-room-card strong {
+    color: #e2e8f0;
+}
+
+html.dark-mode .add-room-card span {
+    color: #64748b;
+}
+
+html.dark-mode .room-management-modal {
+    background: #1f2937;
+
+    border-color: #374151;
+}
+
+html.dark-mode .room-management-icon {
+    background: #1e3a5f;
+
+    color: #60a5fa;
+}
+
+html.dark-mode .room-management-heading h2 {
+    color: #f9fafb;
+}
+
+html.dark-mode .room-management-heading p {
+    color: #9ca3af;
+}
+
+html.dark-mode .room-management-close {
+    background: #374151 !important;
+
+    color: #cbd5e1 !important;
+}
+
+html.dark-mode .room-management-close:hover {
+    background: #4b5563 !important;
+
+    color: #ffffff !important;
+}
+
+html.dark-mode .room-management-room-number {
+    background: #111827;
+
+    border-color: #374151;
+}
+
+html.dark-mode .room-management-room-number span {
+    color: #9ca3af;
+}
+
+html.dark-mode .room-management-room-number strong {
+    color: #60a5fa;
+}
+
+html.dark-mode .management-field label {
+    color: #f9fafb;
+}
+
+html.dark-mode .management-field input,
+html.dark-mode .management-field select,
+html.dark-mode .management-field textarea {
+    background: #111827;
+
+    color: #f9fafb;
+
+    border-color: #374151;
+}
+
+html.dark-mode .management-field input::placeholder,
+html.dark-mode .management-field textarea::placeholder {
+    color: #6b7280;
+}
+
+html.dark-mode .management-cancel {
+    background: #374151;
+
+    color: #f9fafb;
+}
+
+html.dark-mode .management-cancel:hover {
+    background: #4b5563;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+    .room-card-header {
+        align-items: flex-start;
+    }
+
+    .room-management-modal {
+        padding: 22px 18px;
+    }
+
+    .room-management-actions {
+        flex-direction: column-reverse;
+    }
+
+    .management-cancel,
+    .management-save {
+        width: 100%;
+    }
+
+}
+
+/* =========================================================
+   ROOM MANAGEMENT - DELETE ROOM
+========================================================= */
+
+.management-delete {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    min-height: 42px;
+    padding: 11px 18px;
+    border: none;
+    border-radius: 8px;
+    background: #fee2e2;
+    color: #b91c1c;
+    font-family: "Segoe UI", Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.management-delete:hover {
+    background: #fecaca;
+}
+
+.management-delete-confirm {
+    background: #dc2626;
+    color: #ffffff;
+}
+
+.management-delete-confirm:hover {
+    background: #b91c1c;
+}
+
+.room-delete-warning {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px;
+    background: #fef2f2;
+    color: #991b1b;
+    border: 1px solid #fecaca;
+    border-radius: 10px;
+}
+
+.room-delete-warning > i {
+    margin-top: 2px;
+    font-size: 18px;
+}
+
+.room-delete-warning strong {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.room-delete-warning p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #7f1d1d;
+}
+
+html.dark-mode .management-delete {
+    background: #450a0a;
+    color: #fecaca;
+}
+
+html.dark-mode .management-delete:hover {
+    background: #7f1d1d;
+}
+
+html.dark-mode .management-delete-confirm {
+    background: #dc2626;
+    color: #ffffff;
+}
+
+html.dark-mode .management-delete-confirm:hover {
+    background: #b91c1c;
+}
+
+html.dark-mode .room-delete-warning {
+    background: #450a0a;
+    color: #fecaca;
+    border-color: #7f1d1d;
+}
+
+html.dark-mode .room-delete-warning p {
+    color: #fecaca;
+}

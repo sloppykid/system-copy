@@ -1,0 +1,365 @@
+/* ========================================
+   KTV MONITORING SYSTEM
+   COMMON DESIGN
+======================================== */
+
+
+/* ========================================
+   RESET
+======================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+
+/* ========================================
+   GLOBAL BODY
+======================================== */
+
+body {
+    background: #f5f7fb;
+    color: #1f2937;
+}
+
+
+/* ========================================
+   SIDEBAR
+======================================== */
+
+.sidebar {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+
+    width: 240px !important;
+    height: 100vh !important;
+
+    padding: 25px 15px !important;
+
+    background: #1e293b !important;
+    color: #ffffff !important;
+
+    border: none !important;
+
+    z-index: 1000;
+
+    box-shadow: 3px 0 12px rgba(0, 0, 0, 0.08);
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+
+/* ========================================
+   SIDEBAR TITLE
+======================================== */
+
+.sidebar h2 {
+    margin: 0 0 35px 0 !important;
+
+    padding: 0 !important;
+
+    color: #ffffff !important;
+
+    font-size: 22px !important;
+
+    text-align: center;
+}
+
+
+/* ========================================
+   SIDEBAR LIST
+======================================== */
+
+.sidebar ul {
+    list-style: none;
+
+    margin: 0;
+    padding: 0;
+}
+
+
+/* ========================================
+   SIDEBAR ITEMS
+======================================== */
+
+.sidebar li {
+    margin-bottom: 8px !important;
+}
+
+
+/* ========================================
+   SIDEBAR LINKS
+======================================== */
+
+.sidebar li a {
+    display: flex !important;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 12px 15px !important;
+
+    border-radius: 8px !important;
+
+    color: #cbd5e1 !important;
+
+    text-decoration: none;
+
+    font-size: 14px !important;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+
+/* ========================================
+   SIDEBAR HOVER
+======================================== */
+
+.sidebar li a:hover {
+    background: #334155 !important;
+    color: #ffffff !important;
+}
+
+
+/* ========================================
+   ACTIVE PAGE
+======================================== */
+
+.sidebar li.active a {
+    background: #2563eb !important;
+    color: #ffffff !important;
+}
+
+
+/* ========================================
+   SIDEBAR ICONS
+======================================== */
+
+.sidebar i {
+    width: 18px;
+
+    text-align: center;
+}
+
+
+/* ========================================
+   LOGOUT
+======================================== */
+
+.sidebar .logout,
+.sidebar li.logout {
+    margin-top: 30px !important;
+}
+
+.sidebar .logout a {
+    color: #fca5a5 !important;
+}
+
+.sidebar .logout a:hover {
+    background: rgba(239, 68, 68, 0.15) !important;
+    color: #fecaca !important;
+}
+
+
+/* ========================================
+   MAIN CONTENT
+======================================== */
+
+.main {
+    min-height: 100vh;
+
+    margin-left: 240px !important;
+
+    padding: 30px !important;
+
+    background: #f5f7fb;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+
+/* ========================================
+   PAGE HEADER
+======================================== */
+
+.page-header {
+    margin-bottom: 25px !important;
+}
+
+.page-header h1 {
+    margin: 0 0 5px 0 !important;
+
+    color: #1f2937 !important;
+
+    font-size: 30px !important;
+
+    font-weight: 700;
+}
+
+.page-header p {
+    margin: 0;
+
+    color: #6b7280 !important;
+
+    font-size: 14px !important;
+}
+
+
+/* ========================================
+   GENERAL CARDS
+======================================== */
+
+.card,
+.settings-card,
+.stat-card,
+.report-card,
+.room {
+    border-radius: 14px;
+}
+
+
+/* ========================================
+   BUTTON STANDARD
+======================================== */
+
+button {
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+
+/* ========================================
+   SEARCH BOX STANDARD
+======================================== */
+
+.search-box {
+    border-radius: 8px !important;
+
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+
+/* ========================================
+   DARK MODE
+======================================== */
+
+html.dark-mode body {
+    background: #111827 !important;
+
+    color: #f9fafb;
+}
+
+
+/* MAIN */
+
+html.dark-mode .main {
+    background: #111827 !important;
+
+    color: #f9fafb;
+}
+
+
+/* SIDEBAR */
+
+html.dark-mode .sidebar {
+    background: #0f172a !important;
+
+    color: #ffffff !important;
+
+    border: none !important;
+}
+
+
+/* SIDEBAR LINKS */
+
+html.dark-mode .sidebar li a {
+    color: #cbd5e1 !important;
+}
+
+html.dark-mode .sidebar li a:hover {
+    background: #1e293b !important;
+
+    color: #ffffff !important;
+}
+
+html.dark-mode .sidebar li.active a {
+    background: #2563eb !important;
+
+    color: #ffffff !important;
+}
+
+
+/* HEADER */
+
+html.dark-mode .page-header h1 {
+    color: #f9fafb !important;
+}
+
+html.dark-mode .page-header p {
+    color: #9ca3af !important;
+}
+
+
+/* COMMON CARDS */
+
+html.dark-mode .card,
+html.dark-mode .settings-card,
+html.dark-mode .stat-card,
+html.dark-mode .report-card,
+html.dark-mode .room {
+    background: #1f2937 !important;
+
+    color: #f9fafb;
+}
+
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 800px) {
+
+    .sidebar {
+        width: 200px !important;
+    }
+
+    .main {
+        margin-left: 200px !important;
+
+        padding: 25px !important;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .sidebar {
+        position: relative !important;
+
+        width: 100% !important;
+
+        height: auto !important;
+    }
+
+    .main {
+        margin-left: 0 !important;
+
+        padding: 20px !important;
+    }
+
+}

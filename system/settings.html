@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Settings | KTV Monitoring System
+    </title>
+
+
+    <!-- FONT AWESOME -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    >
+
+
+    <!-- COMMON CSS -->
+
+    <link
+        rel="stylesheet"
+        href="css/common.css"
+    >
+
+
+    <!-- SETTINGS CSS -->
+
+    <link
+        rel="stylesheet"
+        href="css/settings.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         ADMIN SIDEBAR
+    ========================================== -->
+
+    <aside class="sidebar">
+
+        <h2>KTV System</h2>
+
+        <ul>
+
+
+            <!-- DASHBOARD -->
+
+            <li>
+
+                <a href="dashboard.html">
+
+                    <i class="fa-solid fa-house"></i>
+
+                    <span>
+                        Dashboard
+                    </span>
+
+                </a>
+
+            </li>
+
+
+            <!-- ROOMS -->
+
+            <li>
+
+                <a href="room.html">
+
+                    <i class="fa-solid fa-door-open"></i>
+
+                    <span>
+                        Rooms
+                    </span>
+
+                </a>
+
+            </li>
+
+
+            <!-- NOTIFICATIONS -->
+
+            <li>
+
+                <a href="notifications.html">
+
+                    <i class="fa-solid fa-bell"></i>
+
+                    <span>
+                        Notifications
+                    </span>
+
+                </a>
+
+            </li>
+
+
+            <!-- ACTIVITY LOG -->
+
+            <li>
+
+                <a href="activitylog.html">
+
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+
+                    <span>
+                        Activity Log
+                    </span>
+
+                </a>
+
+            </li>
+
+
+            <!-- REPORTS -->
+
+            <li>
+
+                <a href="reports.html">
+
+                    <i class="fa-solid fa-chart-column"></i>
+
+                    <span>
+                        Reports
+                    </span>
+
+                </a>
+
+            </li>
+
+
+            <!-- SETTINGS -->
+
+            <li class="active">
+
+                <a href="settings.html">
+
+                    <i class="fa-solid fa-gear"></i>
+
+                    <span>
+                        Settings
+                    </span>
+
+                </a>
+
+            </li>
+
+
+            <!-- LOGOUT -->
+
+            <li class="logout">
+
+                <a href="login.html">
+
+                    <i class="fa-solid fa-right-from-bracket"></i>
+
+                    <span>
+                        Logout
+                    </span>
+
+                </a>
+
+            </li>
+
+
+        </ul>
+
+    </aside>
+
+
+
+    <!-- =========================================
+         MAIN CONTENT
+    ========================================== -->
+
+    <main class="main-content">
+
+
+        <!-- HEADER -->
+
+        <header class="topbar">
+
+            <div>
+
+                <h1>
+                    Settings
+                </h1>
+
+                <p id="currentDate">
+                    Loading date...
+                </p>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =========================================
+             SETTINGS CONTENT
+        ========================================== -->
+
+        <section class="settings-container">
+
+
+            <!-- =====================================
+                 SYSTEM INFORMATION
+            ====================================== -->
+
+            <div class="settings-card">
+
+                <div class="settings-card-header">
+
+                    <div class="settings-icon blue">
+
+                        <i class="fa-solid fa-building"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <h2>
+                            System Information
+                        </h2>
+
+                        <p>
+                            Configure your KTV monitoring system.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="establishmentName">
+
+                        Establishment Name
+
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="establishmentName"
+                        placeholder="Enter establishment name"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="operatorName">
+
+                        System Operator
+
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="operatorName"
+                        placeholder="Enter operator name"
+                    >
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =====================================
+                 ROOM SETTINGS
+            ====================================== -->
+
+            <div class="settings-card">
+
+                <div class="settings-card-header">
+
+                    <div class="settings-icon green">
+
+                        <i class="fa-solid fa-door-open"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <h2>
+                            Room Settings
+                        </h2>
+
+                        <p>
+                            Configure room and session defaults.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="roomCount">
+
+                        Number of KTV Rooms
+
+                    </label>
+
+
+                    <input
+                        type="number"
+                        id="roomCount"
+                        min="1"
+                        max="17"
+                    >
+
+                </div>
+
+
+                <p class="settings-note">
+
+                    Maximum number of rooms is 17.
+
+                </p>
+
+
+                <div class="form-group">
+
+                    <label for="defaultDuration">
+
+                        Default Session Duration (Hours)
+
+                    </label>
+
+
+                    <input
+                        type="number"
+                        id="defaultDuration"
+                        min="1"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="warningTime">
+
+                        Warning Time (Minutes)
+
+                    </label>
+
+
+                    <input
+                        type="number"
+                        id="warningTime"
+                        min="1"
+                    >
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =====================================
+                 NOTIFICATIONS
+            ====================================== -->
+
+            <div class="settings-card">
+
+                <div class="settings-card-header">
+
+                    <div class="settings-icon orange">
+
+                        <i class="fa-solid fa-bell"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <h2>
+                            Notifications
+                        </h2>
+
+                        <p>
+                            Configure system alerts and reminders.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- SOUND PAGER -->
+
+                <div class="setting-row">
+
+                    <div>
+
+                        <h3>
+                            Sound Pager
+                        </h3>
+
+                        <p>
+                            Play a sound when an important alert occurs.
+                        </p>
+
+                    </div>
+
+
+                    <label class="switch">
+
+                        <input
+                            type="checkbox"
+                            id="soundPager"
+                        >
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <!-- VISUAL INDICATOR -->
+
+                <div class="setting-row">
+
+                    <div>
+
+                        <h3>
+                            Visual Indicator
+                        </h3>
+
+                        <p>
+                            Show visual alerts for room warnings and expired sessions.
+                        </p>
+
+                    </div>
+
+
+                    <label class="switch">
+
+                        <input
+                            type="checkbox"
+                            id="visualIndicator"
+                        >
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <!-- BROWSER NOTIFICATIONS -->
+
+                <div class="setting-row">
+
+                    <div>
+
+                        <h3>
+                            Browser Notifications
+                        </h3>
+
+                        <p>
+                            Allow notifications to appear through your browser.
+                        </p>
+
+                    </div>
+
+
+                    <label class="switch">
+
+                        <input
+                            type="checkbox"
+                            id="browserNotifications"
+                        >
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =====================================
+                 APPEARANCE
+            ====================================== -->
+
+            <div class="settings-card">
+
+                <div class="settings-card-header">
+
+                    <div class="settings-icon purple">
+
+                        <i class="fa-solid fa-palette"></i>
+
+                    </div>
+
+
+                    <div>
+
+                        <h2>
+                            Appearance
+                        </h2>
+
+                        <p>
+                            Customize the appearance of the system.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="setting-row">
+
+                    <div>
+
+                        <h3>
+                            Dark Mode
+                        </h3>
+
+                        <p>
+                            Switch between light and dark appearance.
+                        </p>
+
+                    </div>
+
+
+                    <label class="switch">
+
+                        <input
+                            type="checkbox"
+                            id="darkMode"
+                        >
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =====================================
+                 ACTIONS
+            ====================================== -->
+
+            <div class="settings-actions">
+
+                <button
+                    type="button"
+                    class="reset-btn"
+                    onclick="resetSettings()"
+                >
+
+                    <i class="fa-solid fa-rotate-left"></i>
+
+                    Reset Settings
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="save-btn"
+                    onclick="saveSettings()"
+                >
+
+                    <i class="fa-solid fa-floppy-disk"></i>
+
+                    Save Changes
+
+                </button>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =========================================
+         SAVE MESSAGE
+    ========================================== -->
+
+    <div
+        class="save-message"
+        id="saveMessage"
+    >
+
+        <i class="fa-solid fa-circle-check"></i>
+
+        <span>
+            Settings saved successfully!
+        </span>
+
+    </div>
+
+
+
+    <!-- SETTINGS JAVASCRIPT -->
+
+    <script src="js/settings.js"></script>
+
+</body>
+
+</html>

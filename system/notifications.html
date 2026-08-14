@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>KTV System - Notifications</title>
+
+
+    <!-- FONT AWESOME -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+
+    <!-- COMMON CSS -->
+
+    <link
+        rel="stylesheet"
+        href="css/common.css"
+    >
+
+
+    <!-- NOTIFICATIONS CSS -->
+
+    <link
+        rel="stylesheet"
+        href="css/notifications.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar">
+
+        <h2>KTV System</h2>
+
+        <ul>
+
+            <!-- DASHBOARD -->
+
+            <li>
+
+                <a href="dashboard.html">
+
+                    <i class="fa-solid fa-house"></i>
+
+                    <span>
+                        Dashboard
+                    </span>
+
+                </a>
+
+            </li>
+
+
+            <!-- ROOMS -->
+
+            <li>
+
+                <a href="room.html">
+
+                    <i class="fa-solid fa-door-open"></i>
+
+                    <span>
+                        Rooms
+                    </span>
+
+                </a>
+
+            </li>
+
+
+            <!-- NOTIFICATIONS -->
+
+            <li class="active">
+
+                <a href="notifications.html">
+
+                    <i class="fa-solid fa-bell"></i>
+
+                    <span>
+                        Notifications
+                    </span>
+
+                </a>
+
+            </li>
+
+
+            <!-- ACTIVITY LOG -->
+
+            <li>
+
+                <a href="activitylog.html">
+
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+
+                    <span>
+                        Activity Log
+                    </span>
+
+                </a>
+
+            </li>
+
+
+            <!-- REPORTS -->
+
+            <li>
+
+                <a href="reports.html">
+
+                    <i class="fa-solid fa-chart-column"></i>
+
+                    <span>
+                        Reports
+                    </span>
+
+                </a>
+
+            </li>
+
+
+            <!-- SETTINGS -->
+
+            <li>
+
+                <a href="settings.html">
+
+                    <i class="fa-solid fa-gear"></i>
+
+                    <span>
+                        Settings
+                    </span>
+
+                </a>
+
+            </li>
+
+
+            <!-- LOGOUT -->
+
+            <li class="logout">
+
+                <a href="login.html">
+
+                    <i class="fa-solid fa-right-from-bracket"></i>
+
+                    <span>
+                        Logout
+                    </span>
+
+                </a>
+
+            </li>
+
+        </ul>
+
+    </aside>
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- PAGE HEADER -->
+
+        <div class="page-header">
+
+            <div class="header-text">
+
+                <h1>
+                    Notifications
+                </h1>
+
+
+                <p id="notificationCount">
+                    0 total alerts
+                </p>
+
+            </div>
+
+
+            <!-- CLEAR BUTTON -->
+
+            <button
+                type="button"
+                id="clearNotificationsBtn"
+                class="clear-notifications-btn"
+            >
+
+                <i class="fas fa-trash"></i>
+
+                <span>
+                    Clear Notifications
+                </span>
+
+            </button>
+
+        </div>
+
+
+        <!-- =================================================
+             NOTIFICATION LIST
+        ================================================== -->
+
+        <section
+            class="notification-list"
+            id="notificationList"
+        >
+
+            <!-- JavaScript will generate
+                 notifications here -->
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <!-- AUTH FIRST -->
+
+    <script src="js/auth.js"></script>
+
+
+    <!-- THEME -->
+
+    <script src="js/theme.js"></script>
+
+
+    <!-- NOTIFICATIONS -->
+
+    <script src="js/notifications.js"></script>
+
+</body>
+
+</html>

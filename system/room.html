@@ -1,0 +1,1236 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>KTV Monitoring - Rooms</title>
+
+
+    <!-- ================= CSS ================= -->
+
+    <link
+        rel="stylesheet"
+        href="css/room.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="css/common.css"
+    >
+
+
+    <!-- ================= FONT AWESOME ================= -->
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar">
+
+        <h2>KTV System</h2>
+
+
+        <ul>
+
+
+            <!-- DASHBOARD -->
+
+            <li>
+
+                <a href="dashboard.html">
+
+                    <i class="fa-solid fa-house"></i>
+
+                    <span>
+                        Dashboard
+                    </span>
+
+                </a>
+
+            </li>
+
+
+            <!-- ROOMS -->
+
+            <li class="active">
+
+                <a href="room.html">
+
+                    <i class="fa-solid fa-door-open"></i>
+
+                    <span>
+                        Rooms
+                    </span>
+
+                </a>
+
+            </li>
+
+
+            <!-- NOTIFICATIONS -->
+
+            <li>
+
+                <a href="notifications.html">
+
+                    <i class="fa-solid fa-bell"></i>
+
+                    <span>
+                        Notifications
+                    </span>
+
+                </a>
+
+            </li>
+
+
+            <!-- ACTIVITY LOG -->
+
+            <li>
+
+                <a href="activitylog.html">
+
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+
+                    <span>
+                        Activity Log
+                    </span>
+
+                </a>
+
+            </li>
+
+
+            <!-- REPORTS -->
+
+            <li>
+
+                <a href="reports.html">
+
+                    <i class="fa-solid fa-chart-column"></i>
+
+                    <span>
+                        Reports
+                    </span>
+
+                </a>
+
+            </li>
+
+
+            <!-- SETTINGS -->
+
+            <li>
+
+                <a href="settings.html">
+
+                    <i class="fa-solid fa-gear"></i>
+
+                    <span>
+                        Settings
+                    </span>
+
+                </a>
+
+            </li>
+
+
+            <!-- LOGOUT -->
+
+<!-- LOGOUT -->
+
+<li class="logout">
+
+    <a href="login.html">
+
+        <i class="fa-solid fa-right-from-bracket"></i>
+
+        <span>
+            Logout
+        </span>
+
+    </a>
+
+</li>
+
+</ul>
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="main">
+
+
+        <!-- ================= PAGE HEADER ================= -->
+
+        <div class="page-header">
+
+            <div>
+
+                <h1>
+                    Rooms Management
+                </h1>
+
+                <p>
+                    Manage all 17 KTV Rooms
+                </p>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= SEARCH ================= -->
+
+        <input
+            type="text"
+            class="search-box"
+            id="roomSearch"
+            placeholder="Search Room..."
+            autocomplete="off"
+        >
+
+
+
+        <!-- =================================================
+             ROOM GRID
+        ================================================== -->
+
+        <div class="room-grid">
+
+
+            <!-- =================================================
+                 ROOM 1
+            ================================================== -->
+
+            <div class="room available">
+
+                <h3>
+                    Room 1
+                </h3>
+
+                <div class="status">
+
+                    <span class="dot"></span>
+
+                    Available
+
+                </div>
+
+                <p>
+                    No Active Session
+                </p>
+
+                <button
+                    type="button"
+                    onclick="startSession(1)"
+                >
+                    Start Session
+                </button>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 ROOM 2
+            ================================================== -->
+
+            <div class="room available">
+
+                <h3>
+                    Room 2
+                </h3>
+
+                <div class="status">
+
+                    <span class="dot"></span>
+
+                    Available
+
+                </div>
+
+                <p>
+                    No Active Session
+                </p>
+
+                <button
+                    type="button"
+                    onclick="startSession(2)"
+                >
+                    Start Session
+                </button>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 ROOM 3
+            ================================================== -->
+
+            <div class="room available">
+
+                <h3>
+                    Room 3
+                </h3>
+
+                <div class="status">
+
+                    <span class="dot"></span>
+
+                    Available
+
+                </div>
+
+                <p>
+                    No Active Session
+                </p>
+
+                <button
+                    type="button"
+                    onclick="startSession(3)"
+                >
+                    Start Session
+                </button>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 ROOM 4
+            ================================================== -->
+
+            <div class="room available">
+
+                <h3>
+                    Room 4
+                </h3>
+
+                <div class="status">
+
+                    <span class="dot"></span>
+
+                    Available
+
+                </div>
+
+                <p>
+                    No Active Session
+                </p>
+
+                <button
+                    type="button"
+                    onclick="startSession(4)"
+                >
+                    Start Session
+                </button>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 ROOM 5
+            ================================================== -->
+
+            <div class="room available">
+
+                <h3>
+                    Room 5
+                </h3>
+
+                <div class="status">
+
+                    <span class="dot"></span>
+
+                    Available
+
+                </div>
+
+                <p>
+                    No Active Session
+                </p>
+
+                <button
+                    type="button"
+                    onclick="startSession(5)"
+                >
+                    Start Session
+                </button>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 ROOM 6
+            ================================================== -->
+
+            <div class="room available">
+
+                <h3>
+                    Room 6
+                </h3>
+
+                <div class="status">
+
+                    <span class="dot"></span>
+
+                    Available
+
+                </div>
+
+                <p>
+                    No Active Session
+                </p>
+
+                <button
+                    type="button"
+                    onclick="startSession(6)"
+                >
+                    Start Session
+                </button>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 ROOM 7
+            ================================================== -->
+
+            <div class="room available">
+
+                <h3>
+                    Room 7
+                </h3>
+
+                <div class="status">
+
+                    <span class="dot"></span>
+
+                    Available
+
+                </div>
+
+                <p>
+                    No Active Session
+                </p>
+
+                <button
+                    type="button"
+                    onclick="startSession(7)"
+                >
+                    Start Session
+                </button>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 ROOM 8
+            ================================================== -->
+
+            <div class="room available">
+
+                <h3>
+                    Room 8
+                </h3>
+
+                <div class="status">
+
+                    <span class="dot"></span>
+
+                    Available
+
+                </div>
+
+                <p>
+                    No Active Session
+                </p>
+
+                <button
+                    type="button"
+                    onclick="startSession(8)"
+                >
+                    Start Session
+                </button>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 ROOM 9
+            ================================================== -->
+
+            <div class="room available">
+
+                <h3>
+                    Room 9
+                </h3>
+
+                <div class="status">
+
+                    <span class="dot"></span>
+
+                    Available
+
+                </div>
+
+                <p>
+                    No Active Session
+                </p>
+
+                <button
+                    type="button"
+                    onclick="startSession(9)"
+                >
+                    Start Session
+                </button>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 ROOM 10
+            ================================================== -->
+
+            <div class="room available">
+
+                <h3>
+                    Room 10
+                </h3>
+
+                <div class="status">
+
+                    <span class="dot"></span>
+
+                    Available
+
+                </div>
+
+                <p>
+                    No Active Session
+                </p>
+
+                <button
+                    type="button"
+                    onclick="startSession(10)"
+                >
+                    Start Session
+                </button>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 ROOM 11
+            ================================================== -->
+
+            <div class="room available">
+
+                <h3>
+                    Room 11
+                </h3>
+
+                <div class="status">
+
+                    <span class="dot"></span>
+
+                    Available
+
+                </div>
+
+                <p>
+                    No Active Session
+                </p>
+
+                <button
+                    type="button"
+                    onclick="startSession(11)"
+                >
+                    Start Session
+                </button>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 ROOM 12
+            ================================================== -->
+
+            <div class="room available">
+
+                <h3>
+                    Room 12
+                </h3>
+
+                <div class="status">
+
+                    <span class="dot"></span>
+
+                    Available
+
+                </div>
+
+                <p>
+                    No Active Session
+                </p>
+
+                <button
+                    type="button"
+                    onclick="startSession(12)"
+                >
+                    Start Session
+                </button>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 ROOM 13
+            ================================================== -->
+
+            <div class="room available">
+
+                <h3>
+                    Room 13
+                </h3>
+
+                <div class="status">
+
+                    <span class="dot"></span>
+
+                    Available
+
+                </div>
+
+                <p>
+                    No Active Session
+                </p>
+
+                <button
+                    type="button"
+                    onclick="startSession(13)"
+                >
+                    Start Session
+                </button>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 ROOM 14
+            ================================================== -->
+
+            <div class="room available">
+
+                <h3>
+                    Room 14
+                </h3>
+
+                <div class="status">
+
+                    <span class="dot"></span>
+
+                    Available
+
+                </div>
+
+                <p>
+                    No Active Session
+                </p>
+
+                <button
+                    type="button"
+                    onclick="startSession(14)"
+                >
+                    Start Session
+                </button>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 ROOM 15
+            ================================================== -->
+
+            <div class="room available">
+
+                <h3>
+                    Room 15
+                </h3>
+
+                <div class="status">
+
+                    <span class="dot"></span>
+
+                    Available
+
+                </div>
+
+                <p>
+                    No Active Session
+                </p>
+
+                <button
+                    type="button"
+                    onclick="startSession(15)"
+                >
+                    Start Session
+                </button>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 ROOM 16
+            ================================================== -->
+
+            <div class="room available">
+
+                <h3>
+                    Room 16
+                </h3>
+
+                <div class="status">
+
+                    <span class="dot"></span>
+
+                    Available
+
+                </div>
+
+                <p>
+                    No Active Session
+                </p>
+
+                <button
+                    type="button"
+                    onclick="startSession(16)"
+                >
+                    Start Session
+                </button>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 ROOM 17
+            ================================================== -->
+
+            <div class="room available">
+
+                <h3>
+                    Room 17
+                </h3>
+
+                <div class="status">
+
+                    <span class="dot"></span>
+
+                    Available
+
+                </div>
+
+                <p>
+                    No Active Session
+                </p>
+
+                <button
+                    type="button"
+                    onclick="startSession(17)"
+                >
+                    Start Session
+                </button>
+
+            </div>
+
+
+        </div>
+
+    </main>
+
+<!-- =====================================================
+     EXTEND SESSION MODAL
+====================================================== -->
+
+<div
+    id="extendSessionModal"
+    class="modal-overlay"
+>
+
+    <div
+        class="modal-box extend-session-box"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="extendSessionTitle"
+    >
+
+        <div class="modal-icon extend-icon">
+
+            <i class="fa-solid fa-clock"></i>
+
+        </div>
+
+
+        <h2 id="extendSessionTitle">
+            Extend Session
+        </h2>
+
+
+        <p class="extend-room-label">
+
+            Room
+            <strong id="extendSessionRoomNumber">
+                -
+            </strong>
+
+        </p>
+
+
+        <div class="current-time-box">
+
+            <span>
+                Current Time Remaining
+            </span>
+
+            <strong id="extendCurrentTime">
+                00:00:00
+            </strong>
+
+        </div>
+
+
+        <div class="modal-form-group">
+
+            <label for="extendSessionDuration">
+                Additional Time
+            </label>
+
+            <select id="extendSessionDuration">
+
+                <option value="30">
+                    30 Minutes
+                </option>
+
+                <option value="60">
+                    1 Hour
+                </option>
+
+                <option value="120">
+                    2 Hours
+                </option>
+
+                <option value="custom">
+                    Custom
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div
+            class="modal-form-group"
+            id="extendCustomGroup"
+            style="display: none;"
+        >
+
+            <label for="extendCustomMinutes">
+                Custom Duration (Minutes)
+            </label>
+
+            <input
+                type="number"
+                id="extendCustomMinutes"
+                min="1"
+                placeholder="Enter minutes"
+            >
+
+        </div>
+
+
+        <div class="modal-actions">
+
+            <button
+                type="button"
+                class="modal-cancel"
+                onclick="closeExtendSessionModal()"
+            >
+
+                Cancel
+
+            </button>
+
+
+            <button
+                type="button"
+                class="modal-start"
+                onclick="confirmExtendSession()"
+            >
+
+                <i class="fa-solid fa-clock"></i>
+
+                Extend Session
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+    <!-- =====================================================
+         END SESSION MODAL
+    ====================================================== -->
+
+
+
+<!-- =====================================================
+     START SESSION MODAL
+====================================================== -->
+
+<div
+    id="startSessionModal"
+    class="modal-overlay"
+>
+
+    <div
+        class="modal-box start-session-box"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="startSessionTitle"
+    >
+
+        <!-- ICON -->
+
+        <div class="modal-icon start-icon">
+
+            <i class="fa-solid fa-play"></i>
+
+        </div>
+
+
+        <!-- TITLE -->
+
+        <h2 id="startSessionTitle">
+            Start Session
+        </h2>
+
+
+        <!-- ROOM -->
+
+        <p class="start-room-label">
+
+            Room
+            <strong id="startSessionRoomNumber">
+                -
+            </strong>
+
+        </p>
+
+
+        <!-- NUMBER OF PERSONS -->
+
+        <div class="modal-form-group">
+
+            <label for="startPersonCount">
+                Number of Guests
+            </label>
+
+            <input
+                type="number"
+                id="startPersonCount"
+                min="2"
+                max="20"
+                value="2"
+                placeholder="Enter number of guests"
+                autocomplete="off"
+            >
+
+            <small class="pricing-note">
+                Minimum 2 guests • Maximum 20 guests
+            </small>
+
+        </div>
+
+
+        <!-- SESSION DURATION -->
+
+        <div class="modal-form-group">
+
+            <label for="startSessionDuration">
+                Session Duration
+            </label>
+
+            <select id="startSessionDuration">
+
+                <option value="60">
+                    1 Hour
+                </option>
+
+                <option value="120">
+                    2 Hours
+                </option>
+
+                <option value="180">
+                    3 Hours
+                </option>
+
+                <option value="custom">
+                    Custom
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- CUSTOM DURATION -->
+
+        <div
+            class="modal-form-group"
+            id="customDurationGroup"
+            style="display: none;"
+        >
+
+            <label for="customDurationMinutes">
+                Custom Duration (Minutes)
+            </label>
+
+            <input
+                type="number"
+                id="customDurationMinutes"
+                min="1"
+                placeholder="Enter minutes"
+            >
+
+        </div>
+
+
+        <!-- PRICING -->
+
+        <div class="pricing-tiers-box">
+
+            <div class="pricing-tiers-title">
+                Pricing Guide
+            </div>
+
+            <div class="pricing-tier-row">
+                <span>Small — Up to 4 Guests</span>
+                <strong>₱120 / hour</strong>
+            </div>
+
+            <div class="pricing-tier-row">
+                <span>Standard — 5–8 Guests</span>
+                <strong>₱150 / hour</strong>
+            </div>
+
+            <div class="pricing-tier-row">
+                <span>Large — 9–15 Guests</span>
+                <strong>₱200 / hour</strong>
+            </div>
+
+            <div class="pricing-tier-row">
+                <span>VIP — 16–20 Guests</span>
+                <strong>₱350 / hour</strong>
+            </div>
+
+        </div>
+
+
+        <div
+            class="session-pricing-box"
+            id="sessionPricingBox"
+        >
+
+            <div>
+                <span>Hourly Rate</span>
+                <strong id="startHourlyRate">₱120.00 / hour</strong>
+            </div>
+
+            <div>
+                <span>Estimated Total</span>
+                <strong id="startEstimatedTotal">₱120.00</strong>
+            </div>
+
+        </div>
+
+
+        <!-- BUTTONS -->
+
+        <div class="modal-actions">
+
+            <button
+                type="button"
+                class="modal-cancel"
+                onclick="closeStartSessionModal()"
+            >
+                Cancel
+            </button>
+
+
+            <button
+                type="button"
+                class="modal-start"
+                onclick="confirmStartSession()"
+            >
+                <i class="fa-solid fa-play"></i>
+                Start Session
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+    <div
+        id="endSessionModal"
+        class="modal-overlay"
+    >
+
+        <div
+            class="modal-box"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="endSessionTitle"
+        >
+
+
+            <!-- MODAL ICON -->
+
+            <div class="modal-icon">
+
+                <i class="fa-solid fa-door-open"></i>
+
+            </div>
+
+
+
+            <!-- TITLE -->
+
+            <h2 id="endSessionTitle">
+
+                End Session
+
+            </h2>
+
+
+
+            <!-- MESSAGE -->
+
+            <p id="endSessionMessage">
+
+                Are you sure you want to end
+                the session?
+
+            </p>
+
+
+
+            <!-- WARNING -->
+
+            <div class="modal-warning">
+
+                <i class="fa-solid fa-circle-exclamation"></i>
+
+                <span>
+
+                    The room will become
+                    available immediately.
+
+                </span>
+
+            </div>
+
+
+
+            <!-- BUTTONS -->
+
+            <div class="modal-actions">
+
+
+                <button
+                    type="button"
+                    class="modal-cancel"
+                    onclick="closeEndSessionModal()"
+                >
+
+                    Cancel
+
+                </button>
+
+
+                <button
+                    type="button"
+                    class="modal-confirm"
+                    onclick="confirmEndSession()"
+                >
+
+                    End Session
+
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script src="js/theme.js"></script>
+    <script src="js/room.js"></script>
+    <script src="js/room-management.js"></script>
+    <script src="js/auth.js"></script>
+
+
+</body>
+
+</html>
